@@ -22,6 +22,27 @@ design goals:
         navigation
         write all content in markdown
         blog
-                tags
-                recent
+        parts are controllable
+
+compilation process for single page
+  generate markdown if necessary
+  run markdown on everything
+  assemble with parts
+
+normal page structure
+  (folder) something
+    (file) index.md --> special, defines page for top level page for <something> page
+    (file) other thing.md --> normal page under <something>
+    
+blog structure
+  (folder) blog --> special
+    (file) index.md --> most recent posts, automatically generated
+    (file) index1.md --> next page of posts, automatically generated
+    ...
+    (file) indexN.md --> last page of summaries, automatically generated
+    (folder) posts
+      (file) index.md --> automatically generated list of all posts
+      (file) post1.md (name could be anything) (ordered by date modified)
+      ...
+      (file) post\_whatever.md (name could be anything) (ordered by date modified)
 

@@ -19,3 +19,5 @@ def md2html(mdfile, destination):
     f = open(destination + '/' + filename, 'w')
     f.write(html)
     f.close()
+
+
