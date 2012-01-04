@@ -9,15 +9,14 @@ def md2file(path, filename, filecontents):
     f.write(md(filecontents))
     f.close()
 
-def md2html(mdfile, destination):
+def filewrite(file, contents):
+    f = open(file, 'w')
+    f.write(contents)
+    f.close()
+
+def mdfile2html(mdfile):
     f = open(mdfile, 'r')
     html = md(f.read())
     f.close()
-    filename = mdfile.split('/')[-1]
-    filename = filename.split('.')[-2]
-    filename = filename + '.html'
-    f = open(destination + '/' + filename, 'w')
-    f.write(html)
-    f.close()
-
+    return html
 
