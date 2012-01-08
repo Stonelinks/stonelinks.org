@@ -2,3 +2,6 @@
 *~
 build/*
 
+# special files
+content/map.md
+
