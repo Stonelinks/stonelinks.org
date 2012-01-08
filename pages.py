@@ -16,29 +16,50 @@ def md2wp(mdfile, htmldst):
     f.write(html)
     f.close()
 
+def nav(l):
+  s = parts.load('nav.begin')
+  for link, address in l:
+      s += '<li><a href="' + address + '">' + link + '</a></li>\n'
+  s += parts.load('nav.end')
+  return s
+
 def page(html_content):
+
+  # beginning of head
   s = parts.load('doctype')
-
   s += '<head>'
-
-  s += title('hello world')
+  
+  # libraries
+  s += title('stonelinks')
   s += parts.load('bootstrap_css')
-
+  
+  
+  # end head, start page
   s += '</head>'
-
   s += '<body>'
   s += parts.load('pagehead')
   
+  # top bar and navigation
+  navlist = []
+  navlist.append(('herp', 'derp'))
+  navlist.append(('home', 'alone'))
+  navlist.append(('example', 'example2'))
+  s += nav(navlist)
+  
+  # page content
   s += html_content
   
+  # end page
   s += parts.load('footer')
   s += '</body>'
   s += '</html>'
   
+  # filter page
   s = pagefilter(s)
   
   return s
   
 def pagefilter(s):
   s = s.replace('{{wr}}', config.webroot)
+  s = s.replace('{{sn}}', config.site_name)
   return s
