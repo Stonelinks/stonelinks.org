@@ -5,4 +5,4 @@ clean:
 
 site: clean
 	@rsync -avz static/ build/static/
-	@python compile.py content build
+	@python compile.py

@@ -45,4 +45,3 @@ blog structure
       (file) post1.md (name could be anything) (ordered by date modified)
       ...
       (file) post\_whatever.md (name could be anything) (ordered by date modified)
-

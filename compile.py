@@ -29,8 +29,8 @@ def printusage():
 
 if __name__ == "__main__":
   try:
-    globals()['source'] = sys.argv[1]
-    globals()['to'] = sys.argv[2]
+    globals()['source'] = 'content'
+    globals()['to'] = 'build'
   except IndexError:
     printusage()
     sys.exit()
