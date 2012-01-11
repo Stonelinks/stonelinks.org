@@ -2,7 +2,7 @@ import contrib.markdown as markdown
 
 def md(string):
     md = markdown.Markdown()
-    return md.convert(str(string))
+    return md.convert(unicode(string))
 
 def md2file(path, filename, filecontents):
     f = open(path + filename, 'w')

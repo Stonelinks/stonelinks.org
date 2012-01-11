@@ -17,6 +17,7 @@ def filehandler(f, level):
     map(filename, path, level)
 
 def traverse(d = '.', level = 0):
+  print d
   basedir = d
   subdirlist = []
   if os.path.isfile(d):
@@ -43,7 +44,7 @@ def map(filename, path, level):
       global structure
       structure += 4*level*' '
   except:
-      globals()['structure'] = ''
+      globals()['structure'] = '#Site Map\n'
   structure += '- [' + filename + ']({{wr}}/' + address + ')\n'
 
 def printusage():
