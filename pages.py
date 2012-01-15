@@ -31,7 +31,7 @@ def page(html_content):
   
   # libraries
   s += title('stonelinks')
-  s += parts.load('bootstrap_css')
+  s += parts.load('bootstrap_less')
   
   
   # end head, start page
@@ -62,4 +62,5 @@ def page(html_content):
 def pagefilter(s):
   s = s.replace('{{wr}}', config.webroot)
   s = s.replace('{{sn}}', config.site_name)
+  s = s.replace('{{st}}', config.site_tag)
   return s

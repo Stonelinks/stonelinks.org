@@ -1,4 +1,4 @@
-#example text
+#Home
 
 I am applying to work for the Design Lab at Rensselaer Polytechnic Institute for the spring semester of
 2012. My relevant and diverse experience establishes me as a top tier candidate for any of the projects

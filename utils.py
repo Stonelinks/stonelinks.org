@@ -14,6 +14,12 @@ def filewrite(file, contents):
     f.write(contents)
     f.close()
 
+def fileread(file):
+    f = open(file, 'r')
+    s = f.read()
+    f.close()
+    return s
+
 def mdfile2html(mdfile):
     f = open(mdfile, 'r')
     html = md(f.read())
