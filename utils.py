@@ -26,3 +26,10 @@ def mdfile2html(mdfile):
     f.close()
     return html
 
+def clamp(a, b, c):
+  if c <= a:
+    return a
+  elif c > b:
+    return b
+  else:
+    return c

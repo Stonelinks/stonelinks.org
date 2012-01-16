@@ -54,13 +54,4 @@ def page(html_content):
   s += '</body>'
   s += '</html>'
   
-  # filter page
-  s = pagefilter(s)
-  
-  return s
-  
-def pagefilter(s):
-  s = s.replace('{{wr}}', config.webroot)
-  s = s.replace('{{sn}}', config.site_name)
-  s = s.replace('{{st}}', config.site_tag)
   return s

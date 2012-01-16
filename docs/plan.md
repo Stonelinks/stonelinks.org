@@ -24,6 +24,13 @@ design goals:
         blog
         parts are controllable
 
+relative links
+breadcrumb navigation
+
+sidebar with all pages at that level
+automatic index generation
+
+
 compilation process for single page
   generate markdown if necessary
   run markdown on everything

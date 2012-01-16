@@ -2,6 +2,7 @@ import os
 import sys
 import pages
 import utils
+import config
 
 class page(object):
   def __init__(self):
@@ -17,11 +18,27 @@ class page(object):
 
   def address(self):
     if self.is_dir:
-      self.addr = '{{wr}}/' + os.path.join(self.path, self.name, 'index.html')
+      self.addr = '{{wr}}' + os.path.join(self.path, self.name, 'index.html')
     else:
-      self.addr = '{{wr}}/' + os.path.join(self.path, self.name + '.html')
+      self.addr = '{{wr}}' + os.path.join(self.path, self.name + '.html')
     return self.addr
+  
+  def make_page(self):
+    html = utils.md(self.content)
+    page_html = pages.page(html)
     
+    # filter page
+    page_html = self.pagefilter(page_html)
+  
+    return page_html
+  
+  def pagefilter(self, s):
+    rli = utils.clamp(0, self.level, self.level -1)
+    s = s.replace('{{wr}}', '../'*rli)
+    s = s.replace('{{sn}}', config.site_name)
+    s = s.replace('{{st}}', config.site_tag)
+    return s
+
   def __str__(self):
     def q(s):
       return ' '*3 + str(s) + '\n'
@@ -128,8 +145,7 @@ class site(object):
         if not os.path.isdir(basepath):
           os.makedirs(basepath)
         dst = os.path.join(p.destination, p.name + '.html')
-        html = utils.md(p.content)
-        page = pages.page(html)
-        utils.filewrite(dst, page)
+        html = p.make_page()
+        utils.filewrite(dst, html)
 
 
