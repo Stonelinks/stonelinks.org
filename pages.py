@@ -23,16 +23,15 @@ def nav(l):
   s += parts.load('nav.end')
   return s
 
-def page(html_content):
+def page(p):
 
   # beginning of head
   s = parts.load('doctype')
   s += '<head>'
   
   # libraries
-  s += title('stonelinks')
+  s += title(p.human_name)
   s += parts.load('bootstrap_less')
-  
   
   # end head, start page
   s += '</head>'
@@ -47,7 +46,9 @@ def page(html_content):
   s += nav(navlist)
   
   # page content
-  s += html_content
+  s += p.breadcrumb()
+  s += '<br>'
+  s += utils.md(p.content)
   
   # end page
   s += parts.load('footer')

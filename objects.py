@@ -13,8 +13,24 @@ class page(object):
     
     self.level = ''
     self.content = ''
+
     self.destination = ''
+    self.parent = ''
     self.is_dir = False
+
+  def breadcrumb(self):
+    l = self.path.split('/')
+    l.insert(0, 'home')
+    s = []
+    i = 0
+    for p in l:
+      d = l[:i+1]
+      d.append('index.html')
+      s.append('<a href="{{wr}}' + '/'.join(d) + '">' + p.capitalize() + '</a>')
+      i+=1
+    s.append(self.human_name)
+    return '<small>' + ' &gt; '.join(s) + '</small><hr>'
+
 
   def address(self):
     if self.is_dir:
@@ -24,13 +40,12 @@ class page(object):
     return self.addr
   
   def make_page(self):
-    html = utils.md(self.content)
-    page_html = pages.page(html)
+    self.page_html = pages.page(self)
     
     # filter page
-    page_html = self.pagefilter(page_html)
+    self.page_html = self.pagefilter(self.page_html)
   
-    return page_html
+    return self.page_html
   
   def pagefilter(self, s):
     rli = utils.clamp(0, self.level, self.level -1)
@@ -85,7 +100,7 @@ class site(object):
       else:
         title = filename.capitalize()
       
-      print level, ": creating", newpath
+      #print level, ": creating", newpath
 
       content = utils.fileread(d)
 
@@ -96,15 +111,17 @@ class site(object):
       p.path = path
       p.content = content
       p.destination = newpath
+      p.parent = self.find_parent()
       self.pages.append(p)
     else:
-      # create dummy page
+      # create dummy page for the dir
       dir = page()
       dir.human_name = filename.capitalize()
       dir.name = filename
       dir.level = level
       dir.path = path
       dir.is_dir = True
+      dir.parent = self.find_parent()
       self.pages.append(dir)
       for item in sorted(os.listdir(d)):
         if not os.path.isfile(item):
@@ -112,6 +129,22 @@ class site(object):
       for subdir in sorted(subdirlist):
         self.traverse(subdir, level + 1)
   
+  # finds the parent of the newest page
+  def find_parent(self):
+    i = len(self.pages) - 1
+    while i >= 0:
+      if self.pages[i].is_dir:
+        return self.pages[i].address()
+      i-=1
+    return ''
+
+  def page_find(self, address):
+    for p in self.pages:
+      if address is p.address():
+        print "found", p.address()
+        return p
+    return None
+      
   def print_pages(self):
     for page in self.pages:
       print page
@@ -120,7 +153,7 @@ class site(object):
     p = page()
     p.human_name = 'Site Map'
     p.name = 'map'
-    p.level = 0
+    p.level = 1
     p.path = ''
     p.destination = self.to
 
@@ -147,5 +180,3 @@ class site(object):
         dst = os.path.join(p.destination, p.name + '.html')
         html = p.make_page()
         utils.filewrite(dst, html)
-
-
