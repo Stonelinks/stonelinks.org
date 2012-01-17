@@ -19,18 +19,19 @@ class page(object):
     self.is_dir = False
 
   def breadcrumb(self):
-    l = self.path.split('/')
-    l.insert(0, 'home')
-    s = []
-    i = 0
-    for p in l:
-      d = l[:i+1]
-      d.append('index.html')
-      s.append('<a href="{{wr}}' + '/'.join(d) + '">' + p.capitalize() + '</a>')
-      i+=1
-    s.append(self.human_name)
-    return '<small>' + ' &gt; '.join(s) + '</small><hr>'
-
+    if self.level == 1:
+      return ''
+    else:
+      l = self.path.split('/')
+      s = []
+      i = 0
+      for p in l:
+        d = l[:i+1]
+        d.append('index.html')
+        s.append('<a href="{{wr}}' + '/'.join(d) + '">' + p.capitalize() + '</a>')
+        i+=1
+      s.append(self.human_name)
+      return '<small>' + ' &gt; '.join(s) + '</small><hr>'
 
   def address(self):
     if self.is_dir:
@@ -41,18 +42,16 @@ class page(object):
   
   def make_page(self):
     self.page_html = pages.page(self)
-    
-    # filter page
-    self.page_html = self.pagefilter(self.page_html)
-  
+    self.pagefilter()
     return self.page_html
   
-  def pagefilter(self, s):
-    rli = utils.clamp(0, self.level, self.level -1)
+  def pagefilter(self):
+    s = self.page_html
+    rli = utils.clamp(0, self.level, self.level - 1)
     s = s.replace('{{wr}}', '../'*rli)
     s = s.replace('{{sn}}', config.site_name)
     s = s.replace('{{st}}', config.site_tag)
-    return s
+    self.page_html = s
 
   def __str__(self):
     def q(s):
