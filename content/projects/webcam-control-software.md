@@ -2,23 +2,23 @@
 
 *** This is old. Look at posts if you want to see current versions of my projects. This is the first implementation of my remote-controlled camera... under windows. It is ugly and inefficient as sin, but I thougt I was pretty cool when I made it, and maybe it will be useful to somebody here, so I'll leave it up ***
 
-<h2>Introduction</h2><p>I love nothing more in life than creating and tinkering with the stuff around me. Over the years, this love has taken many different forms. It started out somewhere in elementary school with Legos and taking stuff apart and has evolved over the years into weekend projects such as the one you see here.</p><a href="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193147.jpg"><img src="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193147-150x150.jpg" alt="" title="2010-02-08-193147" width="150" height="150" class="alignright size-thumbnail wp-image-392" /></a>
+<h2>Introduction</h2><p>I love nothing more in life than creating and tinkering with the stuff around me. Over the years, this love has taken many different forms. It started out somewhere in elementary school with Legos and taking stuff apart and has evolved over the years into weekend projects such as the one you see here.</p><a href="{{wr}}static/img/old/2010-02-08-193147.jpg"><img src="{{wr}}static/img/old/2010-02-08-193147-150x150.jpg" alt="" title="2010-02-08-193147" width="150" height="150" class="alignright size-thumbnail wp-image-392" /></a>
 <p>One weekend early in the semester, I found myself with some rare free time and so I chose to make my own internet-aware pan-tilt fixture for my webcam. To my room mates <a href="http://en.wikipedia.org/wiki/Sarcasm">delight</a>, I have placed the <a href="http://stonelinks.org/?page_id=114">controls</a> on this website. Projects such as this are just the kind of thing that I love taking time to do. They span concepts that go from very low level microcontroller programming to high level web programming, using all sorts of code and hardware as intermediaries. It required quite a lot of different skill sets and knowledge of systems integration. I'll describe how I did it starting very low level at the and working my way up</p>
 <h2>Step 0: The Hardware</h2>
-<h4>The Microcontroller</h4><hr /><a href="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193359.jpg"><img src="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193359-150x150.jpg" alt="" title="2010-02-08-193359" width="150" height="150" class="alignright size-thumbnail wp-image-391" /></a><p>This summer I came into possession of an <a href="http://www.arduino.cc/">Arduino</a> micro controller and <a href="http://www.rcuniverse.com/product_guide/servoprofile.cfm?servo_id=67">some servos</a>. As you can see from the pictures below, I connected the servos up to the micro controller, making Y-cables for the power, ground, and signal pins of the servos. I also added a laser diode for good measure. All output pins were of course wired to the digital I/O port on the controller. </p><p>Once I had everything wired up, I stuffed the Arduino in a metal box I had lying around and hot glued everything together. Predictably, the webcam itself did not require much work. It was actually given to me for free! (previous owner couldn't find drivers for it). All in all, this was not complicated to build at all and has performed very well for what it was designed to do.</p>
-<h4>The Web Server</h4><hr /><table padding=3><a href="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193241.jpg"><img src="http://stonelinks.org/wp-content/uploads/2010/02/2010-02-08-193241-150x150.jpg" alt="" title="2010-02-08-193241" width="150" height="160" class="alignright size-thumbnail wp-image-394" /></a></table><p>The Arduino is cool and all, but since the ultimate goal of this project is to control it over the internet, having a web server is an obvious requirement. Unfortunately for me, my web server also happens to be my self-built desktop that I use for almost all my engineering work. Because of this, I need access to few applications ( Solidworks, LabVIEW, Photoshop, Steam, etc.. ) that are only available for Windoze. Therefore I am forced into the unfortunate position of hosting this website and making this project work under Windows 7. This is an example of <a href="http://www.burtonco.com/xsites/Appraisers/burtonco1/content/uploadedFiles/wrong%20tool.jpg">the wrong tool for the job</a>, and it actually caused me quite a lot of headaches down the line. In the future when I have another computer to spare and improve on this project, I will use the <a href="http://blog.taragana.com/wp-content/uploads/2008/03/linux-logo.jpg">right tool</a>.</p><p>After all that rambling, you're probably wondering how I have my web server configured. The only relevant details are that I am running <a href="http://www.wampserver.com/en/">WampServer</a> with PHP 5.3.0 with short tags enabled.</p>
+<h4>The Microcontroller</h4><hr /><a href="{{wr}}static/img/old/2010-02-08-193359.jpg"><img src="{{wr}}static/img/old/2010-02-08-193359-150x150.jpg" alt="" title="2010-02-08-193359" width="150" height="150" class="alignright size-thumbnail wp-image-391" /></a><p>This summer I came into possession of an <a href="http://www.arduino.cc/">Arduino</a> micro controller and <a href="http://www.rcuniverse.com/product_guide/servoprofile.cfm?servo_id=67">some servos</a>. As you can see from the pictures below, I connected the servos up to the micro controller, making Y-cables for the power, ground, and signal pins of the servos. I also added a laser diode for good measure. All output pins were of course wired to the digital I/O port on the controller. </p><p>Once I had everything wired up, I stuffed the Arduino in a metal box I had lying around and hot glued everything together. Predictably, the webcam itself did not require much work. It was actually given to me for free! (previous owner couldn't find drivers for it). All in all, this was not complicated to build at all and has performed very well for what it was designed to do.</p>
+<h4>The Web Server</h4><hr /><table padding=3><a href="{{wr}}static/img/old/2010-02-08-193241.jpg"><img src="{{wr}}static/img/old/2010-02-08-193241-150x150.jpg" alt="" title="2010-02-08-193241" width="150" height="160" class="alignright size-thumbnail wp-image-394" /></a></table><p>The Arduino is cool and all, but since the ultimate goal of this project is to control it over the internet, having a web server is an obvious requirement. Unfortunately for me, my web server also happens to be my self-built desktop that I use for almost all my engineering work. Because of this, I need access to few applications ( Solidworks, LabVIEW, Photoshop, Steam, etc.. ) that are only available for Windoze. Therefore I am forced into the unfortunate position of hosting this website and making this project work under Windows 7. This is an example of <a href="http://www.burtonco.com/xsites/Appraisers/burtonco1/content/uploadedFiles/wrong%20tool.jpg">the wrong tool for the job</a>, and it actually caused me quite a lot of headaches down the line. In the future when I have another computer to spare and improve on this project, I will use the <a href="http://blog.taragana.com/wp-content/uploads/2008/03/linux-logo.jpg">right tool</a>.</p><p>After all that rambling, you're probably wondering how I have my web server configured. The only relevant details are that I am running <a href="http://www.wampserver.com/en/">WampServer</a> with PHP 5.3.0 with short tags enabled.</p>
 <h2>Step 1: Establishing Basic Control of the Camera</h2>
 <h4>Microcontroller Code</h4><hr /><p>I wrote the following code to establish basic control of the Arduino over its USB to serial adapter. The comments explain what is going on, but for further background reading you can check out this about<a href="http://en.wikipedia.org/wiki/Pulse-width_modulation"> PWM control</a> and this about <a href="http://en.wikipedia.org/wiki/EEPROM">what EEPROM is</a>. Sorry ahead of time that the formatting of the code is all mangled, it was the best I could do.</p>
 <pre class="brush:c">
 
 /*
- * File:      		pantilt.c
- * Description: 	An program for asynchronously controlling
- *					servos (via EEPROM and PWM) for use on a pan / tilt
- *					setup on my robot
- * Author:        	Lucas Doyle
- * Creation Date: 	October 16, 2009
- * Revision Date: 	Jan 31, 2010
+ * File:                pantilt.c
+ * Description:         An program for asynchronously controlling
+ *                                      servos (via EEPROM and PWM) for use on a pan / tilt
+ *                                      setup on my robot
+ * Author:              Lucas Doyle
+ * Creation Date:       October 16, 2009
+ * Revision Date:       Jan 31, 2010
  */
 
 // Since the Arduino resets itself every time a serial connection is
@@ -36,7 +36,7 @@ char laserpin     = 13;    // the camera has a little laser diode on it
 int minPulseX    =  600;  // minimum servo position
 int maxPulseX    =  2400; // maximum servo position
 int minPulseY    = 500;   // same thing for other servo
-int maxPulseY	 = 1850;
+int maxPulseY    = 1850;
 char turnRate     =  100;  // servo turn rate increment (larger value, faster rate)
 char refreshTime  =  20;   // time (ms) between pulses (50Hz)
 
@@ -52,19 +52,19 @@ long lastPulse   = 0;     // recorded time (ms) of the last pulse
 // mode variables
 int laseron      = 0;     // start out with the laser off by default
 int partymode    = 0;     // party mode, some stupid idea i had to have the camera
-						  // spaz out and strobe the laser, has not been written yet
-						  // because i have not had time
+                                                  // spaz out and strobe the laser, has not been written yet
+                                                  // because i have not had time
 
 // This function writes an int to eeprom at p_address
 // Adapted from Marc Cardinals work:
 // http://blog.ncode.ca/wp-content/uploads/2008/08/eeprom-int-readwrite.pde
 void EEPROMWriteInt(int p_address, int p_value)
 {
-	byte lowByte = ((p_value >> 0) & 0xFF);
-	byte highByte = ((p_value >> 8) & 0xFF);
+        byte lowByte = ((p_value >> 0) & 0xFF);
+        byte highByte = ((p_value >> 8) & 0xFF);
 
-	EEPROM.write(p_address, lowByte);
-	EEPROM.write(p_address + 1, highByte);
+        EEPROM.write(p_address, lowByte);
+        EEPROM.write(p_address + 1, highByte);
 }
 
 // This function reads the int back
@@ -72,130 +72,130 @@ void EEPROMWriteInt(int p_address, int p_value)
 // http://blog.ncode.ca/wp-content/uploads/2008/08/eeprom-int-readwrite.pde
 unsigned int EEPROMReadInt(int p_address)
 {
-	byte lowByte = EEPROM.read(p_address);
-	byte highByte = EEPROM.read(p_address + 1);
-	return ((lowByte << 0) & 0xFF) + ((highByte << 8) & 0xFF00);
+        byte lowByte = EEPROM.read(p_address);
+        byte highByte = EEPROM.read(p_address + 1);
+        return ((lowByte << 0) & 0xFF) + ((highByte << 8) & 0xFF00);
 }
 
 void setup()
 {
-	// Set up servo and laser pins as an output
-	pinMode(servoPinX, OUTPUT);
-	pinMode(laserpin, OUTPUT);
-	pinMode(servoPinY, OUTPUT);
+        // Set up servo and laser pins as an output
+        pinMode(servoPinX, OUTPUT);
+        pinMode(laserpin, OUTPUT);
+        pinMode(servoPinY, OUTPUT);
 
-	// calculate center positions for both servos
-	centerServoX = maxPulseX - ((maxPulseX - minPulseX)/2);
-	centerServoY = maxPulseY - (((maxPulseY - minPulseY)/2)-280);
+        // calculate center positions for both servos
+        centerServoX = maxPulseX - ((maxPulseX - minPulseX)/2);
+        centerServoY = maxPulseY - (((maxPulseY - minPulseY)/2)-280);
 
-	// If you're running this for the first time on your arduino,
-	// uncomment the next two lines to initialize the EEPROM
-	// EEPROMWriteInt(0, centerServoX);
-	// EEPROMWriteInt(2, centerServoY);
+        // If you're running this for the first time on your arduino,
+        // uncomment the next two lines to initialize the EEPROM
+        // EEPROMWriteInt(0, centerServoX);
+        // EEPROMWriteInt(2, centerServoY);
 
 
-	pulseWidthX = EEPROMReadInt(0);
-	pulseWidthY = EEPROMReadInt(2);
+        pulseWidthX = EEPROMReadInt(0);
+        pulseWidthY = EEPROMReadInt(2);
 
-	// begin serial communication
-	Serial.begin(9600);
-	//Serial.println("Arduino Serial Pan/tilt Control");
-	//Serial.println("Standard WASD to move, spacebar to center");
-	//Serial.println("L toggles the laser, TFGH goes to the extremes");
+        // begin serial communication
+        Serial.begin(9600);
+        //Serial.println("Arduino Serial Pan/tilt Control");
+        //Serial.println("Standard WASD to move, spacebar to center");
+        //Serial.println("L toggles the laser, TFGH goes to the extremes");
 }
 
 void loop()
 {
-	// wait for serial input
-	//if (Serial.available() > 0)
+        // wait for serial input
+        //if (Serial.available() > 0)
 
-		// read the incoming byte:
-		moveServo = Serial.read();
+                // read the incoming byte:
+                moveServo = Serial.read();
 
-		// if party mode is off, read in commands
-		//if (partymode == 0)
+                // if party mode is off, read in commands
+                //if (partymode == 0)
 
-			//if (moveServo == (char) " ") {/*nothing happens*/}
+                        //if (moveServo == (char) " ") {/*nothing happens*/}
 
                         // move left
-			 if (moveServo == 'a') { pulseWidthX = pulseWidthX - turnRate; }
+                         if (moveServo == 'a') { pulseWidthX = pulseWidthX - turnRate; }
 
-			// move right
-			else if (moveServo == 'd') { pulseWidthX = pulseWidthX + turnRate; }
+                        // move right
+                        else if (moveServo == 'd') { pulseWidthX = pulseWidthX + turnRate; }
 
-			// move up
-			else if (moveServo == 'w') { pulseWidthY = pulseWidthY - turnRate; }
+                        // move up
+                        else if (moveServo == 'w') { pulseWidthY = pulseWidthY - turnRate; }
 
-			// move down
-			else if (moveServo == 's') { pulseWidthY = pulseWidthY + turnRate; }
+                        // move down
+                        else if (moveServo == 's') { pulseWidthY = pulseWidthY + turnRate; }
 
-			// center
-			else if (moveServo == 'c') { pulseWidthX = centerServoX; pulseWidthY = centerServoY;}
+                        // center
+                        else if (moveServo == 'c') { pulseWidthX = centerServoX; pulseWidthY = centerServoY;}
 
-			// move hard left
-			else if (moveServo == 'f') {pulseWidthX = minPulseX; }
+                        // move hard left
+                        else if (moveServo == 'f') {pulseWidthX = minPulseX; }
 
-			// move hard right
-			else if (moveServo == 'h') {pulseWidthX = maxPulseX; }
+                        // move hard right
+                        else if (moveServo == 'h') {pulseWidthX = maxPulseX; }
 
-			// move hard up
-			else if (moveServo == 't') {pulseWidthY = minPulseY; }
+                        // move hard up
+                        else if (moveServo == 't') {pulseWidthY = minPulseY; }
 
-			// move hard down
-			else if (moveServo == 'g') {pulseWidthY = maxPulseY; }
+                        // move hard down
+                        else if (moveServo == 'g') {pulseWidthY = maxPulseY; }
 
                         // toggle the laser
-		        else if (moveServo == 'l')
-		        {
-			  if (laseron == 0) { digitalWrite(laserpin, HIGH); laseron = 1; }
-			  else if (laseron == 1) { digitalWrite(laserpin, LOW); laseron = 0; }
-		        }
+                        else if (moveServo == 'l')
+                        {
+                          if (laseron == 0) { digitalWrite(laserpin, HIGH); laseron = 1; }
+                          else if (laseron == 1) { digitalWrite(laserpin, LOW); laseron = 0; }
+                        }
 
 
 
-		// however if party mode is enabled
-		//else if (partymode == 1)
-		//{
-			// do some awesome stuff (not yet implemented)
-		//	Serial.print("Party!!! ");
-		//}
+                // however if party mode is enabled
+                //else if (partymode == 1)
+                //{
+                        // do some awesome stuff (not yet implemented)
+                //      Serial.print("Party!!! ");
+                //}
 
-		// party mode
-		//else if (moveServo == 'p')
-		//{
-		//	if (partymode == 0) { partymode = 1; }
-		//	else if (partymode == 1) { partymode = 0; }
-		//}
+                // party mode
+                //else if (moveServo == 'p')
+                //{
+                //      if (partymode == 0) { partymode = 1; }
+                //      else if (partymode == 1) { partymode = 0; }
+                //}
 
-		// stop servo pulse at min and max
-		if (pulseWidthX > maxPulseX) { pulseWidthX = maxPulseX; }
-		if (pulseWidthX < minPulseX) { pulseWidthX = minPulseX; }
-		if (pulseWidthY > maxPulseY) { pulseWidthY = maxPulseY; }
-		if (pulseWidthY < minPulseY) { pulseWidthY = minPulseY; }
+                // stop servo pulse at min and max
+                if (pulseWidthX > maxPulseX) { pulseWidthX = maxPulseX; }
+                if (pulseWidthX < minPulseX) { pulseWidthX = minPulseX; }
+                if (pulseWidthY > maxPulseY) { pulseWidthY = maxPulseY; }
+                if (pulseWidthY < minPulseY) { pulseWidthY = minPulseY; }
 
-		// print pulseWidth back to the Serial Monitor (uncomment to debug)
+                // print pulseWidth back to the Serial Monitor (uncomment to debug)
         // Serial.print("Pulse Width: ");
         // Serial.print(pulseWidth);
         // Serial.println("us");   // microseconds
 
 
-	// pulse the servo every 20 ms (refreshTime) with current pulseWidth
-	// this will hold the servo's position if unchanged, or move it if changed
-	if (millis() - lastPulse >= refreshTime)
-	{
-	EEPROMWriteInt(0, pulseWidthX);
-	EEPROMWriteInt(2, pulseWidthY);
+        // pulse the servo every 20 ms (refreshTime) with current pulseWidth
+        // this will hold the servo's position if unchanged, or move it if changed
+        if (millis() - lastPulse >= refreshTime)
+        {
+        EEPROMWriteInt(0, pulseWidthX);
+        EEPROMWriteInt(2, pulseWidthY);
 
-	digitalWrite(servoPinX, HIGH);   // start the pulse
-	delayMicroseconds(pulseWidthX);  // pulse width
-	digitalWrite(servoPinX, LOW);    // end the pulse
+        digitalWrite(servoPinX, HIGH);   // start the pulse
+        delayMicroseconds(pulseWidthX);  // pulse width
+        digitalWrite(servoPinX, LOW);    // end the pulse
 
-	digitalWrite(servoPinY, HIGH);   // start the pulse for servo 2
-	delayMicroseconds(pulseWidthY);  // pulse width
-	digitalWrite(servoPinY, LOW);    // stop the pulse
+        digitalWrite(servoPinY, HIGH);   // start the pulse for servo 2
+        delayMicroseconds(pulseWidthY);  // pulse width
+        digitalWrite(servoPinY, LOW);    // stop the pulse
 
-	lastPulse = millis();            // save the time of the last pulse
-	}
+        lastPulse = millis();            // save the time of the last pulse
+        }
 }
 </pre>
 
@@ -221,7 +221,7 @@ if (isset($_GET['action']))
     //Action required! Build our command...
    $basecmd = "F:\\wamp\\www\\luke\\Projects\\personal_robot\\personal robot\\commands\\";
    $cmd = $basecmd . $_GET['action'] . "\\application.windows\\" . $_GET['action'] . ".exe";
-	exec($cmd);
+        exec($cmd);
 }
 </pre>
 

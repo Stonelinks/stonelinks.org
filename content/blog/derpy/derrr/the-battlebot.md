@@ -2,7 +2,7 @@
 
 *** This is old. Look at posts if you want to see current versions of my projects. These pages are from a now defunct RPI Battlebots Club website. I've kept a few pages because I think we actually come up with a pretty good design. ***
 <h3>Introducing our Robot!</h3>
-<a href="http://stonelinks.org/wp-content/uploads/2010/02/RPI_BATTLEBOTS_LOGO.jpg"><img class="alignright size-medium wp-image-185" title="RPI + Battlebot mixed logo" src="http://stonelinks.org/wp-content/uploads/2010/02/RPI_BATTLEBOTS_LOGO-300x226.jpg" alt="" width="300" height="226" /></a>
+<a href="{{wr}}static/img/old/RPI_BATTLEBOTS_LOGO.jpg"><img class="alignright size-medium wp-image-185" title="RPI + Battlebot mixed logo" src="{{wr}}static/img/old/RPI_BATTLEBOTS_LOGO-300x226.jpg" alt="" width="300" height="226" /></a>
 
 We are proud to announce the genesis of our first robot design ever! After much brainstorming and deliberation, this yet-to-be-named hybrid bar spinner design has been cooked up. The effectiveness and simplicity of such a design will offer our rookie team a good starting point for the future, but at the same time not be a boring or overly simplistic <a href="http://i-5autogroup.com/images/pics/pro_91_1.jpg">box on wheels.</a>
 <h3>The Bar Spinner</h3>
