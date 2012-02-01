@@ -1,6 +1,6 @@
 #About Luke
 
-[caption id="" align="alignright" width="200" caption="The face of Lucas Palage Doyle"]<img title="Hey, get that pointer out of my face!" src="http://photos-b.ak.fbcdn.net/photos-ak-sf2p/v48/57/119/1099020141/n1099020141_30006025_3058.jpg" alt="my face" width="200" height="200" />[/caption]
+<img style="float:right;" title="Hey, get that pointer out of my face!" src="http://photos-b.ak.fbcdn.net/photos-ak-sf2p/v48/57/119/1099020141/n1099020141_30006025_3058.jpg" alt="my face" width="200" height="200" />
 
 <strong>Welcome!</strong> I am a B.S candidate in <a href="http://www.ecse.rpi.edu/">Computer and Systems Engineering</a> at the RPI <a href="http://www.eng.rpi.edu/soe/">School of Engineering</a>. Currently, I also <a href="http://stonelinks.ath.cx/?page_id=243">work</a> for the <a href="http://www.cfa.harvard.edu/hea/">Harvard-Smithsonian Center for Astrophysics</a> developing and integrating the hardware and software systems to automate the fabrication of multilayer coatings on the surface of optics for (eventual) use in <a href="http://ixo.gsfc.nasa.gov/">space based observatories</a>. I also do freelance <a href="http://stonelinks.org/websites">website</a> work, both back end programming / administration to front end web design. This summer I'm very excited to be doing work for <a href="http://www.anybots.com/#front">Anybots</a> on their telepresence robots.
 
