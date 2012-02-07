@@ -78,19 +78,22 @@ class site(object):
   def init(self):
     self.state = 'init'
     self.traverse(self.source)
-    
-  #dfs style traversal
-  def traverse(self, d = '.', level = 0):
-    basedir = d
-    subdirlist = []
-
+  
+  def page_obj(self, d, level, is_dir=False):
     path = '/'.join(d.split('/')[1:-1])
     filename = d.split('/')[-1].split('.')[0]
     
     oldpath = os.path.join(self.source, path)
     newpath = os.path.join(self.to, path)
-    
-    if os.path.isfile(d):
+    p = page()
+    p.level = level
+    p.path = path
+    p.parent = self.find_parent()
+    if is_dir:
+      p.human_name = filename.capitalize()
+      p.name = filename
+      p.is_dir = True
+    else:
       f = open(d, 'r')
       firstline = f.readline()
       f.close()
@@ -98,29 +101,22 @@ class site(object):
         title = firstline[1:-1]
       else:
         title = filename.capitalize()
-      
-      #print level, ": creating", newpath
-
-      content = utils.fileread(d)
-
-      p = page()
       p.human_name = title
       p.name = filename
-      p.level = level
-      p.path = path
-      p.content = content
+      p.content = utils.fileread(d)
       p.destination = newpath
-      p.parent = self.find_parent()
+    return p
+
+  #dfs style traversal
+  def traverse(self, d = '.', level = 0):
+    basedir = d
+    subdirlist = []
+    if os.path.isfile(d):
+      p = self.page_obj(d, level)
       self.pages.append(p)
     else:
       # create dummy page for the dir
-      dir = page()
-      dir.human_name = filename.capitalize()
-      dir.name = filename
-      dir.level = level
-      dir.path = path
-      dir.is_dir = True
-      dir.parent = self.find_parent()
+      dir = self.page_obj(d, level, is_dir=True)
       self.pages.append(dir)
       for item in sorted(os.listdir(d)):
         if not os.path.isfile(item):
