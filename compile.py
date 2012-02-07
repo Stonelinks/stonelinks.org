@@ -3,9 +3,8 @@ import sys
 import pages
 import utils
 import objects
-  
+
 if __name__ == "__main__":
-  
   s = objects.site()
   s.source = 'content'
   s.to = 'build'

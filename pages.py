@@ -7,24 +7,23 @@ def title(title):
   return '<title>' + title + '</title>\n'
 
 def md2wp(mdfile, htmldst):
-    html = utils.mdfile2html(mdfile)
-    html = page(html)
-    filename = mdfile.split('/')[-1]
-    filename = filename.split('.')[-2]
-    filename = filename + '.html'
-    f = open(os.path.join(htmldst, filename), 'w')
-    f.write(html)
-    f.close()
+  html = utils.mdfile2html(mdfile)
+  html = page(html)
+  filename = mdfile.split('/')[-1]
+  filename = filename.split('.')[-2]
+  filename = filename + '.html'
+  f = open(os.path.join(htmldst, filename), 'w')
+  f.write(html)
+  f.close()
 
 def nav(l):
   s = parts.load('nav.begin')
   for link, address in l:
-      s += '<li><a href="' + address + '">' + link + '</a></li>\n'
+    s += '<li><a href="' + address + '">' + link + '</a></li>\n'
   s += parts.load('nav.end')
   return s
 
 def page(p):
-
   # beginning of head
   s = parts.load('doctype')
   s += '<head>'
