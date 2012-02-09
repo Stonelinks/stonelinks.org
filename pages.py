@@ -48,6 +48,7 @@ def page(p):
   s += p.breadcrumb()
   s += '<br>'
   s += utils.md(p.content)
+  s += utils.md(p.sidebar)
   
   # end page
   s += parts.load('footer')

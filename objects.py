@@ -13,10 +13,11 @@ class page(object):
     
     self.level = ''
     self.content = ''
-
+    self.sidebar = ''
+    
     self.destination = ''
-    self.parent = ''
     self.is_dir = False
+    self.children = []
 
   def breadcrumb(self):
     if self.level == 1:
@@ -56,8 +57,8 @@ class page(object):
   def __str__(self):
     def q(s):
       return ' '*3 + str(s) + '\n'
+    
     s = q(self.human_name + ':')
-
     s += q(self.name)
     s += q(self.path)
     s += q(self.address())
@@ -69,15 +70,31 @@ class page(object):
     
 class site(object):
   def __init__(self):
-    self.source = ''
-    self.to = ''
+    self.source = 'content'
+    self.to = 'build'
 
-    self.pages = []
+    self.root = None
     self.state = None
     
-  def init(self):
     self.state = 'init'
-    self.traverse(self.source)
+    self.build_tree(None, self.source)
+    self.print_tree()
+    
+  def traverse(self, t_func):
+    def _traverse(p, lvl, t_func):
+      s = ''
+      if not p.is_dir:
+        return t_func(p)
+      else:
+        s += t_func(p)
+        for c in p.children:
+          s += _traverse(c, lvl + 1, t_func)
+        return s
+    return _traverse(self.root, 0, t_func)
+    
+  def print_tree(self):
+    print_func = lambda p: '  '*p.level + '- ' + p.human_name + '\n'
+    print self.traverse(print_func)
   
   def page_obj(self, d, level, is_dir=False):
     path = '/'.join(d.split('/')[1:-1])
@@ -88,7 +105,7 @@ class site(object):
     p = page()
     p.level = level
     p.path = path
-    p.parent = self.find_parent()
+    #p.parent = '/'.join(d.split('/')[:-1]) + '/index.html'
     if is_dir:
       p.human_name = filename.capitalize()
       p.name = filename
@@ -108,41 +125,26 @@ class site(object):
     return p
 
   #dfs style traversal
-  def traverse(self, d = '.', level = 0):
+  def build_tree(self, parent, d = '.', level = 0):
     basedir = d
     subdirlist = []
-    if os.path.isfile(d):
-      p = self.page_obj(d, level)
-      self.pages.append(p)
+    
+    is_dir=os.path.isdir(d)
+    p = self.page_obj(d, level, is_dir=is_dir)
+    p.children = []
+    if self.root == None:
+      self.root = p
     else:
-      # create dummy page for the dir
-      dir = self.page_obj(d, level, is_dir=True)
-      self.pages.append(dir)
+      print "appending", p.human_name, "to", parent.human_name 
+      parent.children.append(p)
+    
+    if is_dir:
       for item in sorted(os.listdir(d)):
         if not os.path.isfile(item):
           subdirlist.append(os.path.join(basedir, item))
-      for subdir in sorted(subdirlist):
-        self.traverse(subdir, level + 1)
-  
-  # finds the parent of the newest page
-  def find_parent(self):
-    i = len(self.pages) - 1
-    while i >= 0:
-      if self.pages[i].is_dir:
-        return self.pages[i].address()
-      i-=1
-    return ''
-
-  def page_find(self, address):
-    for p in self.pages:
-      if address is p.address():
-        print "found", p.address()
-        return p
-    return None
       
-  def print_pages(self):
-    for page in self.pages:
-      print page
+    for subdir in sorted(subdirlist):
+      self.build_tree(p, subdir, level + 1)
   
   def gen_map(self):
     p = page()
@@ -151,27 +153,66 @@ class site(object):
     p.level = 1
     p.path = ''
     p.destination = self.to
-
-    s = '#Site Map\n\n\n'
-    for d in self.pages:
-      s += 4*d.level*' '
-      s += '- [' + d.human_name + '](' + d.address() + ')\n'
+    
+    s = '#Site Map\n\n'
+    map_func = lambda p: '    '*p.level + \
+               '- [' + p.human_name + '](' + p.address() +')\n'
+    s += self.traverse(map_func)
 
     p.content = s
-    self.pages.append(p)
+    self.root.children.append(p)
+
+  def gen_sidebars(self):
+    content = ''
+    saved = -1
+    sidebars = {}
+    for p in self.pages:
+      try:
+        sidebar = sidebars[p.parent]
+      except KeyError:
+        sidebar = sidebars[p.parent] = []
+      sidebar.append(p)
+    for k, v in sidebars.iteritems():
+      print '========================='
+      print v[0].parent, ':'
+      for p in v:
+        print p.address() + ', '
+    print '\n'*10
+    for p in self.pages:
+        print '  '*p.level, p.level, p.address()
+
+
+      
+      
+      
+    if 0:
+      
+      if d.level + 1 == self.pages[i - 1].level:
+        content += '- [' + d.human_name + '](' + d.address() + ')\n'
+        if saved == -1:
+          saved = i
+      elif d.level < self.pages[i + 1].level:
+        for j in range(saved, i):
+          self.pages[j].sidebar = content
+          print "adding sidebar", content, "to", self.pages[j].human_name
+        content = ''
+        i = -1
+      i += 1
 
   def gen_special_pages(self):
     self.gen_map()
+    #self.gen_sidebars()
 
   def gen_pages(self):
     self.state = 'generate'
-    for p in self.pages:
+    def _gen_page(p):
       if p.is_dir:
-        continue
+        pass
       else:
         basepath = os.path.join(self.to, p.path)
         if not os.path.isdir(basepath):
           os.makedirs(basepath)
         dst = os.path.join(p.destination, p.name + '.html')
-        html = p.make_page()
-        utils.filewrite(dst, html)
+        utils.filewrite(dst, p.make_page())
+      return ''
+    self.traverse(_gen_page)
