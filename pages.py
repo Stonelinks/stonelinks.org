@@ -48,8 +48,11 @@ def page(p):
   s += p.breadcrumb()
   s += '<br>'
   s += utils.md(p.content)
+  s += '</div>'
+  s += '<div class="span4">'
+  s += '<h3>Navigation</h3>'
   s += utils.md(p.sidebar)
-  
+  s += '</div>'
   # end page
   s += parts.load('footer')
   s += '</body>'

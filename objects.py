@@ -163,45 +163,19 @@ class site(object):
     self.root.children.append(p)
 
   def gen_sidebars(self):
-    content = ''
-    saved = -1
-    sidebars = {}
-    for p in self.pages:
-      try:
-        sidebar = sidebars[p.parent]
-      except KeyError:
-        sidebar = sidebars[p.parent] = []
-      sidebar.append(p)
-    for k, v in sidebars.iteritems():
-      print '========================='
-      print v[0].parent, ':'
-      for p in v:
-        print p.address() + ', '
-    print '\n'*10
-    for p in self.pages:
-        print '  '*p.level, p.level, p.address()
-
-
-      
-      
-      
-    if 0:
-      
-      if d.level + 1 == self.pages[i - 1].level:
-        content += '- [' + d.human_name + '](' + d.address() + ')\n'
-        if saved == -1:
-          saved = i
-      elif d.level < self.pages[i + 1].level:
-        for j in range(saved, i):
-          self.pages[j].sidebar = content
-          print "adding sidebar", content, "to", self.pages[j].human_name
-        content = ''
-        i = -1
-      i += 1
+    def _gen_sidebar(p):
+      s = '\n'
+      for c in p.children:
+        s += '- [%s](%s)\n' % (c.human_name, c.address())
+      for c in p.children:
+        bar = s.replace('- [%s](%s)' % (c.human_name, c.address()), '- %s' % c.human_name)
+        c.sidebar = bar
+      return ''
+    self.traverse(_gen_sidebar)
 
   def gen_special_pages(self):
     self.gen_map()
-    #self.gen_sidebars()
+    self.gen_sidebars()
 
   def gen_pages(self):
     self.state = 'generate'
