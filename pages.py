@@ -46,13 +46,15 @@ def page(p):
   
   # page content
   s += p.breadcrumb()
-  s += '<br>'
+
+  if not p.name == 'map':
+    s += '<div class="span4" style="float: right;">'
+    s += '<b>Navigation</b>'
+    s += utils.md(p.sidebar)
+    s += '</div>'
+  
   s += utils.md(p.content)
-  s += '</div>'
-  s += '<div class="span4">'
-  s += '<h3>Navigation</h3>'
-  s += utils.md(p.sidebar)
-  s += '</div>'
+
   # end page
   s += parts.load('footer')
   s += '</body>'

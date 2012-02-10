@@ -3,6 +3,7 @@ import sys
 import pages
 import utils
 import config
+import tidy
 
 class page(object):
   def __init__(self):
@@ -48,16 +49,23 @@ class page(object):
   
   def pagefilter(self):
     s = self.page_html
+
+    s = s.replace('{{sn}}', config.site_name) # site name
+    s = s.replace('{{st}}', config.site_tag) # site tag
+    
+    # social networks
+    s = s.replace('{{social_small}}', config.social_small())
+    
+    # In order to make the website as portable as possible, 
+    # all links generated are relative to the root
+    # rli = relative link index
     rli = utils.clamp(0, self.level, self.level - 1)
     s = s.replace('{{wr}}', '../'*rli)
-    s = s.replace('{{sn}}', config.site_name)
-    s = s.replace('{{st}}', config.site_tag)
     self.page_html = s
 
   def __str__(self):
     def q(s):
       return ' '*3 + str(s) + '\n'
-    
     s = q(self.human_name + ':')
     s += q(self.name)
     s += q(self.path)
@@ -125,7 +133,7 @@ class site(object):
     return p
 
   #dfs style traversal
-  def build_tree(self, parent, d = '.', level = 0):
+  def build_tree(self, parent, d='.', level=0):
     basedir = d
     subdirlist = []
     
@@ -135,7 +143,6 @@ class site(object):
     if self.root == None:
       self.root = p
     else:
-      print "appending", p.human_name, "to", parent.human_name 
       parent.children.append(p)
     
     if is_dir:

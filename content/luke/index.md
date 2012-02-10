@@ -11,6 +11,7 @@ In addition to the above interests, I have always had a very strong connection t
 Outside of the technical world (in my seemingly non-existent free time), I enjoy sailing, running, hiking, traveling, reading, Team Fortress 2, and of course all the <a href="http://photos-g.ak.fbcdn.net/photos-ak-sf2p/v362/57/119/1099020141/n1099020141_30157834_5408.jpg">tom-foolery</a> that comes about when living around friends and fellow engineering students.
 
 Many tell me that I am passionate, disciplined and good natured about what I do. I love trying new things and can often be found doing things just for the challenge and thrill of learning. I consider myself very fortunate to be where I am.
+
 <div class="mceTemp"><dl class="wp-caption aligncenter" style="width: 100%;"> <dt class="wp-caption-dt"> </dt>
 <h1><a href="http://stonelinks.org/Luke/Documents/Resume/lucas_doyle_resume_current.pdf">Resume</a> |   <a href="http://stonelinks.org/?page_id=462">Calendar</a> |  <strong><a href="http://stonelinks.org/?page_id=497">Contact</a></strong></h1>
 </dl></div>
