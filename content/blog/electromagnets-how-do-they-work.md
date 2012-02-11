@@ -1,7 +1,10 @@
 #Electromagnets, how do they work?
 
-<a href="http://stonelinks.org/wp-content/uploads/2011/01/downsize1.jpg"><img class="alignright size-medium wp-image-882" title="downsize" src="http://stonelinks.org/wp-content/uploads/2011/01/downsize1-225x300.jpg" alt="" width="225" height="300" /></a>Home for the break! My brother asked me for help making a small electromagnet to bring into Boy Scouts for electricity merit badge. I of course jump at the opportunity, and ask what kind of power source they are going to be using to drive said magnet. He tells me they will be using a single D battery.
+[![image]({{wr}}wp-content/uploads/2011/01/downsize1-225x300.jpg "downsize")]({{wr}}wp-content/uploads/2011/01/downsize1.jpg)
 
-Thinking this is kind of small, I spent a few hours making the biggest electromagnet from things around the house I could find. I ultimately settled on sawing an old golf club in half, stuffing a large bolt down the hollow inside, and then mounting the whole thing in a drill to facilitate easy winding of the low-gauge wire I found in our garage. To top it off, I powered the whole thing with an old computer power supply (5V at 25A I believe). The whole affair vaguely looks like some kind of torture device.
+Home for the break! My brother asked me for help making a small electromagnet to bring into Boy Scouts for electricity merit badge. I of course jumped at the opportunity, and ask what kind of power source they are going to be using to drive said magnet. He tells me they will be using a single D battery. Thinking this is kind of small, I spent a few hours making the biggest electromagnet from things around the house I could find.
 
-The end result is a large electro magnet that can pick up very heavy weights and gets furiously hot and smells like burning plastic if left on for more than 5 minutes. Totally overkill for Boy Scouts, but totally awesome. Mission: Success
+I ultimately settled on sawing an old golf club in half, stuffing a large bolt down the hollow inside, and then mounting the whole thing in a drill to facilitate easy winding of some low-gauge wire I found in our garage. To top it off, I powered the whole thing with an old computer power supply (5V at 25A I believe). The whole affair vaguely looks like some kind of torture device. The end result is a large electro magnet that can pick up very heavy weights and gets furiously hot and smells like burning plastic if left on for more than 5 minutes. Totally overkill for Boy Scouts, but totally awesome.
+
+Mission: Success.
+

@@ -1,17 +1,27 @@
 #Recursive Directory Lister
 
-<span style="color: #ff0000;">*edit* This is old. Look at posts if you want to see current versions of my projects. This was like the first thing of great significance I did with Stonelinks on my own (read: I didn't know what I was doing). Similar to the Windows based webcam thing, I thought it was a big deal at the time. Looking back it is funny how trivial this would be to implement nowadays. Oh also, there are things in here that are just plain wrong and/or bad practice (left as an exercise to the reader to find).</span>
-<h3>Purpose and Demonstration</h3>
-<hr />You may notice that I have little collapsible trees all over the place on this website. I wanted a quick, easy and effective way to integrate entire directories of files on my computer on to webpages. Wasn't really happy with anything currently out there, so I made this myself. However, using <a href="http://jquery.com/">jquery</a> made things extremely easy.<!--more-->
-<h3>The HTML</h3>
-<hr />Put this in your header! It loads the necessary files from the jquery treeview plugin. I recommend saving them somewhere local on your server.
-<pre class="brush:html"><script src="/trees/jquery-latest.js"><!--mce:0--></script>
-<script src="/trees/jquery.cookie.js" type="text/javascript"><!--mce:1--></script>
-<script src="/trees/jquery.treeview.js" type="text/javascript"><!--mce:2--></script>
-<script type="text/javascript"><!--mce:3--></script></pre>
-<h3>The PHP</h3>
-<hr />It doesn't matter where this goes, but calling the function getDirectory() will echo the tree back on to your webpage.
-<pre class="brush:php">// Use this to format filesizes into things that are human readable.
+*** This is old. Look at posts if you want to see current versions of my projects. This was like the first thing of great significance I did with Stonelinks on my own (read: I didn't know what I was doing). Similar to the Windows based webcam thing, I thought it was a big deal at the time. Looking back it is funny how trivial this would be to implement nowadays. Oh also, there are things in here that are just plain wrong and/or bad practice (left as an exercise to the reader to find). ***
+
+# Purpose and Demonstration
+
+* * * * *
+
+You may notice that I have little collapsible trees all over the place on this website. I wanted a quick, easy and effective way to integrate entire directories of files on my computer on to webpages. Wasn't really happy with anything currently out there, so I made this myself. However, using [jquery](http://jquery.com/) made things extremely easy.
+
+# The HTML
+
+* * * * *
+
+Put this in your header! It loads the necessary files from the jquery treeview plugin. I recommend saving them somewhere local on your server.
+
+# The PHP
+
+* * * * *
+
+It doesn't matter where this goes, but calling the function getDirectory() will echo the tree back on to your webpage.
+
+<pre>
+// Use this to format filesizes into things that are human readable.
 function format_bytes($size) {
     $units = array(' B', ' KB', ' MB', ' GB', ' TB');
     for ($i = 0; $size &gt;= 1024 &amp;&amp; $i &lt; 4; $i++) $size /= 1024;
