@@ -11,11 +11,13 @@ social_networks = {
 'linkedin' : 'http://www.linkedin.com/pub/lucas-doyle/25/550/169',
 }
 
+use_less = False
+
 def social_small():
   s = ''
   for k, v in social_networks.iteritems():
     s += '<a href ="' + v + '" >'
-    s += '<img src="{{wr}}static/img/icons/' + k + '.png">'
+    s += '<img style="position: relative; top: 4px;" src="{{wr}}static/img/icons/' + k + '.png">'
     s += '</a>'
     s += '&nbsp;'*2
   return s

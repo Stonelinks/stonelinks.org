@@ -1,4 +1,4 @@
-.PHONY: clean site
+.PHONY: clean compile deploy site
 
 clean:
 	@rm -rf build/*
@@ -9,7 +9,6 @@ compile: clean
 	@python compile.py
 
 deploy:
-	#@rsync -avz build/ /var/www/build/
 	@rsync -avz build/ /home/ld/Dropbox/Public/sl/
 	@chmod 777 -R /home/ld/Dropbox/Public/sl/
 

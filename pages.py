@@ -3,8 +3,8 @@ import config
 import utils
 import os
 
-def title(title):
-  return '<title>' + title + '</title>\n'
+def tag(tag, content):
+  return '<' + tag + '>' + content + '</' + tag + '>'
 
 def md2wp(mdfile, htmldst):
   html = utils.mdfile2html(mdfile)
@@ -25,38 +25,48 @@ def nav(l):
 
 def page(p):
   # beginning of head
-  s = parts.load('doctype')
+  s = '<!DOCTYPE html><html>'
   s += '<head>'
   
-  # libraries
-  s += title(p.human_name)
-  s += parts.load('bootstrap_less')
+  s += tag('title', p.human_name)
+  
+  s += parts.load('js_libs')
+
+  # style
+  if config.use_less:
+    s += parts.load('bootstrap_less')
+  else:
+    s += parts.load('bootstrap_css')
   
   # end head, start page
-  s += '</head>'
-  s += '<body>'
-  s += parts.load('pagehead')
+  s += '</head><body>'
+  s += '<div class="container">'
+  s += '<div class="content">'
+  s += '<div class="wrapper">'
   
   # top bar and navigation
   navlist = []
-  navlist.append(('herp', 'derp'))
-  navlist.append(('home', 'alone'))
-  navlist.append(('example', 'example2'))
+  navlist.append(('Luke', '{{wr}}luke'))
+  navlist.append(('Blog', '{{wr}}blog'))
+  navlist.append(('Site Map', '{{wr}}map'))
   s += nav(navlist)
   
   # page content
   s += p.breadcrumb()
 
-  if not p.name == 'map':
+  if not p.omit_sidebar:
     s += '<div class="span4" style="float: right;">'
-    s += '<b>Navigation</b>'
+    #s += '<b>Navigation</b>'
     s += utils.md(p.sidebar)
     s += '</div>'
   
   s += utils.md(p.content)
-
+  
   # end page
+  s += '</div>'
   s += parts.load('footer')
+  s += '</div>'
+  s += '</div>'
   s += '</body>'
   s += '</html>'
   

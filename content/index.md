@@ -5,4 +5,4 @@ Sorry. I'm in the process of migrating it away from wordpress. Check out [github
 
 In the meantime you'll be redirected to the old version of my website in a few seconds.
 
-<meta http-equiv="REFRESH" content="5;url=oldwp">
+

@@ -15,11 +15,13 @@ class page(object):
     self.level = ''
     self.content = ''
     self.sidebar = ''
+    self.omit_sidebar = False
     
     self.destination = ''
     self.is_dir = False
+    self.is_auto_index = False
     self.children = []
-
+    
   def breadcrumb(self):
     if self.level == 1:
       return ''
@@ -28,12 +30,17 @@ class page(object):
       s = []
       i = 0
       for p in l:
-        d = l[:i+1]
+        d = l[:i + 1]
         d.append('index.html')
         s.append('<a href="{{wr}}' + '/'.join(d) + '">' + p.capitalize() + '</a>')
         i+=1
       s.append(self.human_name)
-      return '<small>' + ' &gt; '.join(s) + '</small><hr>'
+      s.insert(0, '<a href="{{wr}}">Home</a>')
+      
+      # TODO: make this less ugly 
+      s = '<small>' + ' &gt; '.join(s) + '</small><hr>'
+      s = s.replace(' &gt; <a href="{{wr}}/index.html"></a>', '')
+      return s
 
   def address(self):
     if self.is_dir:
@@ -113,11 +120,12 @@ class site(object):
     p = page()
     p.level = level
     p.path = path
-    #p.parent = '/'.join(d.split('/')[:-1]) + '/index.html'
+    p.destination = newpath
     if is_dir:
       p.human_name = filename.capitalize()
       p.name = filename
       p.is_dir = True
+      p.content = None
     else:
       f = open(d, 'r')
       firstline = f.readline()
@@ -129,7 +137,6 @@ class site(object):
       p.human_name = title
       p.name = filename
       p.content = utils.fileread(d)
-      p.destination = newpath
     return p
 
   #dfs style traversal
@@ -160,6 +167,7 @@ class site(object):
     p.level = 1
     p.path = ''
     p.destination = self.to
+    p.omit_sidebar = True
     
     s = '#Site Map\n\n'
     map_func = lambda p: '    '*p.level + \
@@ -171,7 +179,7 @@ class site(object):
 
   def gen_sidebars(self):
     def _gen_sidebar(p):
-      s = '\n'
+      s = '**[' + p.human_name + '](' + p.address() + ')**\n\n'
       for c in p.children:
         s += '- [%s](%s)\n' % (c.human_name, c.address())
       for c in p.children:
@@ -180,20 +188,43 @@ class site(object):
       return ''
     self.traverse(_gen_sidebar)
 
+  def gen_indexes(self):
+    def _gen_index(p):
+      if p.name == 'index' or not p.is_dir:
+        return ''
+      for c in p.children:
+        if c.name == 'index':
+          return ''
+      print "generating index for ", p.human_name
+      p.omit_sidebar = True
+      s = '#' + p.human_name + '\n\n'
+      for c in p.children:
+        s += '- ##[%s](%s)\n' % (c.human_name, c.address())
+      p.content = s
+      p.is_auto_index = True
+      p.destination = os.path.join(p.destination, p.name)
+      return ''
+    self.traverse(_gen_index)
+
   def gen_special_pages(self):
+    self.gen_indexes()
     self.gen_map()
     self.gen_sidebars()
 
   def gen_pages(self):
     self.state = 'generate'
     def _gen_page(p):
-      if p.is_dir:
+      if p.content is None:
         pass
       else:
         basepath = os.path.join(self.to, p.path)
         if not os.path.isdir(basepath):
           os.makedirs(basepath)
-        dst = os.path.join(p.destination, p.name + '.html')
+        if p.is_auto_index:
+          p.level += 1
+          dst = os.path.join(p.destination, 'index.html')
+        else:
+          dst = os.path.join(p.destination, p.name + '.html')
         utils.filewrite(dst, p.make_page())
       return ''
     self.traverse(_gen_page)
