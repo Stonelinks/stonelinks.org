@@ -61,8 +61,8 @@ class page(object):
     s = s.replace('{{st}}', config.site_tag) # site tag
     
     # social networks
-    s = s.replace('{{social_small}}', config.social_small())
-    s = s.replace('{{social_large}}', config.social_large())
+    s = s.replace('{{social_small}}', pages.social_small())
+    s = s.replace('{{social_large}}', pages.social_large())
     
     # In order to make the website as portable as possible, 
     # all links generated are relative to the root

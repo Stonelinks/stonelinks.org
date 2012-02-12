@@ -13,26 +13,3 @@ social_networks = {
 }
 
 use_less = False
-
-def social_small():
-  s = ''
-  for k, v in social_networks.iteritems():
-    s += '<a href ="' + v + '" >'
-    s += '<img style="position: relative; top: 4px;" src="{{wr}}static/img/icons/' + k + '.png">'
-    s += '</a>'
-    s += '&nbsp;'*2
-  return s
-
-def social_large():
-  s = '<div class="span8" style="text-align: center;"><table>'
-  for k, v in social_networks.iteritems():
-    s += '<tr><td>'
-    s += '<a href ="' + v + '" >'
-    s += '<img src="{{wr}}static/img/lgicons/' + k + '.png">'
-    s += '</a>'
-    s += '&nbsp;'*2
-    s += '</td><td>'
-    s += '<a href ="' + v + '" ><h2>' + k.capitalize().replace('plus', ' +') + '</h2></a>'
-    s += '</td></tr>'
-  s += '</table></div>'
-  return s
