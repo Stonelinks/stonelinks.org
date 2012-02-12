@@ -28,9 +28,10 @@ def page(p):
   s = '<!DOCTYPE html><html>'
   s += '<head>'
   
-  s += tag('title', p.human_name)
+  s += tag('title', '{{sn}} | ' + p.human_name)
   
   s += parts.load('js_libs')
+  s += parts.load('favicon')
 
   # style
   if config.use_less:
@@ -47,6 +48,7 @@ def page(p):
   # top bar and navigation
   navlist = []
   navlist.append(('Luke', '{{wr}}luke'))
+  navlist.append(('Projects', '{{wr}}projects'))
   navlist.append(('Blog', '{{wr}}blog'))
   navlist.append(('Site Map', '{{wr}}map'))
   s += nav(navlist)
@@ -55,8 +57,8 @@ def page(p):
   s += p.breadcrumb()
 
   if not p.omit_sidebar:
+    s += '<div style="clear: both;"></div>'
     s += '<div class="span4" style="float: right;">'
-    #s += '<b>Navigation</b>'
     s += utils.md(p.sidebar)
     s += '</div>'
   
@@ -67,6 +69,7 @@ def page(p):
   s += parts.load('footer')
   s += '</div>'
   s += '</div>'
+  s += '<br>'*10
   s += '</body>'
   s += '</html>'
   

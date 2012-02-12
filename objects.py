@@ -62,6 +62,7 @@ class page(object):
     
     # social networks
     s = s.replace('{{social_small}}', config.social_small())
+    s = s.replace('{{social_large}}', config.social_large())
     
     # In order to make the website as portable as possible, 
     # all links generated are relative to the root
