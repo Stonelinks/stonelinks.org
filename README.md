@@ -8,4 +8,4 @@ This is the code that runs stonelinks.org, my personal website. It is also a sta
 - ????
 - Profit
 
-If you want to see what the end result from this system looks like, check out (my website)[http://stonelinks.org].
+If you want to see what the end result from this system looks like, check out [my website](http://stonelinks.org).
