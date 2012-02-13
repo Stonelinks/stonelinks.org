@@ -140,7 +140,6 @@ class site(object):
       p.content = utils.fileread(d)
     return p
 
-  #dfs style traversal
   def build_tree(self, parent, d='.', level=0):
     basedir = d
     subdirlist = []

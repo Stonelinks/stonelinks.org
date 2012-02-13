@@ -1,55 +1,23 @@
-content:
-  bio
-  cv
-  resume
-  networks
-    github
-    fb
-    twitter
-    g+
-          
-  portfolio
-    robotics
-      <list you sent to anybots>
-    other projects
+#Features
 
-  blog
-    <all existing blog entries>
+- Page heiarchy
+    - Detection of the heiarchy of pages on the website
+    - Automatic generation of a site map based on heiarchy
+    - Automatic generation of navigation sidebar for all pages on the same level in hierarchy
+    - Automatic generation of index pages in a directory if an `index.md` file doesn't exist
+    - Breadcrumb navigation for each page from root of tree to current page
+- URL control
+    - Should be able to control everything about a URL from:
+        - Name of markdown file
+        - Location in a directory
+- Portability
+    - Entire build directory of website should be standalone in terms of static content
+    - Able to copy and paste website directory anywhere without needing to change settings for root URL
+        - Relative links everywhere
+- Misc
+    - Write all content in markdown!
 
-design goals:
-  page heiarchy
-  url control
-  navigation
-  write all content in markdown
-  blog
-  parts are controllable
+#Features that would be nice
 
-relative links
-breadcrumb navigation
-
-sidebar with all pages at that level
-automatic index generation
-
-curate content
-
-compilation process for single page
-  generate markdown if necessary
-  run markdown on everything
-  assemble with parts
-
-normal page structure
-  (folder) something
-    (file) index.md --> special, defines page for top level page for <something> page
-    (file) other thing.md --> normal page under <something>
-    
-blog structure
-  (folder) blog --> special
-    (file) index.md --> most recent posts, automatically generated
-    (file) index1.md --> next page of posts, automatically generated
-    ...
-    (file) indexN.md --> last page of summaries, automatically generated
-    (folder) posts
-      (file) index.md --> automatically generated list of all posts
-      (file) post1.md (name could be anything) (ordered by date modified)
-      ...
-      (file) post\_whatever.md (name could be anything) (ordered by date modified)
+- Some kind of blog... thing (need to think about this more)
+- Comments via disqus
