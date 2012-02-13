@@ -21,3 +21,4 @@
 
 - Some kind of blog... thing (need to think about this more)
 - Comments via disqus
+- Galleries from directories of pictures

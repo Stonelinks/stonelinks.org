@@ -20,6 +20,7 @@ def nav(l):
   s = parts.load('nav.begin')
   for link, address in l:
     s += '<li><a href="' + address + '">' + link + '</a></li>\n'
+  s += parts.load('search')
   s += parts.load('nav.end')
   return s
 
