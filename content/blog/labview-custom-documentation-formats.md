@@ -1,4 +1,5 @@
 #LabVIEW Custom Documentation Formats
+11/22/2010
 
 LabVIEW is a necessary evil, but sometimes it pulls through. Earlier today I found myself in the position of needing a whole bunch of icons, block diagrams and VI hierarchies extracted from a bunch of LabVIEW that I wrote for work to go in my documentation, which is in written in LaTeX. Up until now I thought this would mean trying to do a million screenshots over VNC on my work computer, and then going back and cropping what I needed. However on further research I was thrilled to find out that LabVIEW can pretty much do this on its own. See the [NI website on printing VI documentation](http://zone.ni.com/reference/en-XX/help/371361B-01/lvconcepts/printing_vis/).
 

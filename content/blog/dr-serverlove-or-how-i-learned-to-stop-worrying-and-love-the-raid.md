@@ -1,4 +1,5 @@
 #Dr. Serverlove, or How I Learned to Stop Worrying and Love the RAID
+12/07/2010
 
 [caption id="attachment\_876" align="alignright" width="300" caption="These two machines now live under the bookshelf next to my desk. They throw off a ton of heat!"][![image]({{wr}}wp-content/uploads/2011/01/downsize-300x225.jpg "A Tale of two Servers")]({{wr}}wp-content/uploads/2011/01/downsize.jpg)[/caption]
 

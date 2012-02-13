@@ -1,4 +1,5 @@
 #Windows Based Webcam Control Software
+09/30/2010
 
 #TODO: fix all this
 

@@ -1,4 +1,5 @@
 #Door Mounted Robo-Schwarzenegger
+11/22/2010
 
 [![image]({{wr}}static/img/old/downsize_4-225x300.jpg "downsize_4")]({{wr}}static/img/old/downsize_4.jpg)
 

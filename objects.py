@@ -3,7 +3,7 @@ import sys
 import pages
 import utils
 import config
-import tidy
+import time
 
 class page(object):
   def __init__(self):
@@ -11,7 +11,7 @@ class page(object):
     self.name = ''
     self.path = ''
     self.addr = ''
-    
+    self.date = ''
     self.level = ''
     self.content = ''
     self.sidebar = ''
@@ -90,11 +90,9 @@ class site(object):
     self.to = 'build'
 
     self.root = None
-    self.state = None
     
-    self.state = 'init'
     self.build_tree(None, self.source)
-    self.print_tree()
+    #self.print_tree()
     
   def traverse(self, t_func):
     def _traverse(p, lvl, t_func):
@@ -179,6 +177,8 @@ class site(object):
 
   def gen_sidebars(self):
     def _gen_sidebar(p):
+      if p.name == 'blog':
+        return ''
       s = '**[' + p.human_name + '](' + p.address() + ')**\n\n'
       for c in p.children:
         s += '- [%s](%s)\n' % (c.human_name, c.address())
@@ -190,7 +190,7 @@ class site(object):
 
   def gen_indexes(self):
     def _gen_index(p):
-      if p.name == 'index' or not p.is_dir:
+      if p.name in ['index', 'blog'] or not p.is_dir:
         return ''
       for c in p.children:
         if c.name == 'index':
@@ -206,13 +206,55 @@ class site(object):
       return ''
     self.traverse(_gen_index)
 
+  def gen_blog(self):
+    def blog_index(p):
+      if p.name == 'blog':
+        n = page()
+        n.human_name = 'Blog'
+        n.name = 'index'
+        n.level = p.level + 1
+        n.path = os.path.join(p.path, 'blog')
+        n.destination = os.path.join(p.destination, 'blog')
+        n.omit_sidebar = False
+        s = ''
+        #s = '#' + n.human_name + '\n\n'
+        #s += '<br>'*4 + '\n'
+        sidebar = '##Archives:\n\n'
+        blog = {}
+        for c in p.children:
+          date = c.content[c.content.find('\n') + 1:]
+          date = date[:date.find('\n')]
+          c.date = date
+          key = time.mktime(time.strptime(date, '%m/%d/%Y'))
+          blog[key] = c
+        
+        for k in reversed(sorted(blog.iterkeys())):
+          c = blog[k]
+          blog_summary = '##[' + c.human_name + '](' + c.address() +')\n'
+          blog_summary += '<br>\n'
+          wordlist = c.content[c.content.find('\n') + 1:]
+          wordlist = wordlist[wordlist.find('\n'):]
+          wordlist = wordlist.replace('#','##').split(' ')
+          blog_summary += 'Date: ' + c.date + '\n\n'
+          blog_summary += ' '.join(wordlist[:90])
+          blog_summary += '\n'*2
+          blog_summary += '[Read more...](' + c.address() +')\n'
+          blog_summary += '<br>'*3 + '<hr>\n'
+          s += blog_summary
+          sidebar += '- [%s](%s)\n' % (c.human_name, c.address())
+        n.content = s
+        n.sidebar = sidebar
+        p.children.append(n)
+      return ''
+    self.traverse(blog_index)
+
   def gen_special_pages(self):
     self.gen_indexes()
+    self.gen_blog()
     self.gen_map()
     self.gen_sidebars()
 
   def gen_pages(self):
-    self.state = 'generate'
     def _gen_page(p):
       if p.content is None:
         pass

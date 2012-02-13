@@ -1,4 +1,5 @@
-#Execute, time and plot C++ programs with Python
+#Execute, Time and Plot C++ Programs with Python
+02/03/2011
 
 [![Hate excel? Have python take all the pain away from you!]({{wr}}wp-content/uploads/2011/02/Fig-300x225.png "Fig")]({{wr}}wp-content/uploads/2011/02/Fig.png)
 

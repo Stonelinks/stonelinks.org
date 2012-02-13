@@ -1,4 +1,5 @@
-#Electromagnets, how do they work?
+#Electromagnets, How do They Work?
+12/22/2010
 
 [![image]({{wr}}wp-content/uploads/2011/01/downsize1-225x300.jpg "downsize")]({{wr}}wp-content/uploads/2011/01/downsize1.jpg)
 

@@ -1,4 +1,5 @@
 #Rudimentary Gmail-based Print Server
+01/26/2011
 
 Another example of python being super useful. I found myself today with a need to network a printer so my room mates and I could print from anywhere on campus. However, figuring out what ports to forward, finding out that IPP wasn't working, and just being generally unhappy with CUPS and the way RPIs network restricts printer traffic / discovery lead me to consider alternate solutions.
 

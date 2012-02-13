@@ -1,4 +1,5 @@
-#Stonelinks hosted at my house
+#Stonelinks Hosted at my House
+12/21/2010
 
 Looks like the kinks of my new two-server setup are not ironed out. I just got home from RPI and it the old Dell is acting wacky. I thoroughly checked both machines before I left for home, and I thought everything was okay. However, upon arriving home, I checked the web server to find that it doesn't work -- not even a 404 page or a time out error, the browser just hangs.
 
