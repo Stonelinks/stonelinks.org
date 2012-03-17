@@ -54,7 +54,6 @@ def page(p):
   
   s += tag('title', '{{sn}} | ' + p.human_name)
   
-  s += parts.load('js_libs')
   s += parts.load('favicon')
 
   # style
@@ -62,6 +61,9 @@ def page(p):
     s += parts.load('bootstrap_less')
   else:
     s += parts.load('bootstrap_css')
+
+  s += parts.load('js_libs')
+
   
   # end head, start page
   s += '</head><body>'
