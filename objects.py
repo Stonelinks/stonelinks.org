@@ -179,12 +179,14 @@ class site(object):
     def _gen_sidebar(p):
       if p.name == 'blog':
         return ''
-      s = '**[' + p.human_name + '](' + p.address() + ')**\n\n'
+      s = '<h3><a href="%s">%s</a></h3>' % (p.address(), p.human_name)
+      s += '<ul class="nav nav-list">'
       for c in p.children:
-        s += '- [%s](%s)\n' % (c.human_name, c.address())
+        s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
       for c in p.children:
-        bar = s.replace('- [%s](%s)' % (c.human_name, c.address()), '- %s' % c.human_name)
-        c.sidebar = bar
+        c.sidebar = s.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
+                      '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
+        c.sidebar += '</ul>'
       return ''
     self.traverse(_gen_sidebar)
 
@@ -219,7 +221,8 @@ class site(object):
         s = ''
         #s = '#' + n.human_name + '\n\n'
         #s += '<br>'*4 + '\n'
-        sidebar = '##Archives:\n\n'
+        sidebar = '<h3>Archives</h3>'
+        sidebar += '<ul class="nav nav-list">'
         blog = {}
         for c in p.children:
           date = c.content[c.content.find('\n') + 1:]
@@ -241,9 +244,14 @@ class site(object):
           blog_summary += '[Read more...](' + c.address() +')\n'
           blog_summary += '<br>'*3 + '<hr>\n'
           s += blog_summary
-          sidebar += '- [%s](%s)\n' % (c.human_name, c.address())
-        n.content = s
+          sidebar += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
+        sidebar += '</ul>'
+        
+        for c in p.children:
+          c.sidebar = sidebar.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
+                      '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
         n.sidebar = sidebar
+        n.content = s
         p.children.append(n)
       return ''
     self.traverse(blog_index)

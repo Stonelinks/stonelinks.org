@@ -9,7 +9,7 @@ compile: clean
 	@python compile.py
 
 deploy:
-	@rsync -avz build/ /home/ld/Dropbox/Public/sl/
+	@ rsync -avz build/ /home/ld/Dropbox/Public/sl/
 	@chmod 777 -R /home/ld/Dropbox/Public/sl/
 
 	@rsync -axhvve ssh build/ root@stonelinks.org:/media/sdb1

@@ -24,7 +24,6 @@ def nav(l):
   s += parts.load('nav.end')
   return s
 
-
 def social_small():
   s = ''
   for k, v in config.social_networks.iteritems():
@@ -35,7 +34,7 @@ def social_small():
   return s
 
 def social_large():
-  s = '<div class="span8" style="text-align: center;"><table>'
+  s = '<div class="span4" style="text-align: center;"><table>'
   for k, v in config.social_networks.iteritems():
     s += '<tr><td>'
     s += '<a href ="' + v + '" >'
@@ -66,10 +65,7 @@ def page(p):
   
   # end head, start page
   s += '</head><body>'
-  s += '<div class="container">'
-  s += '<div class="content">'
-  s += '<div class="wrapper">'
-  
+
   # top bar and navigation
   navlist = []
   navlist.append(('Luke', '{{wr}}luke'))
@@ -77,24 +73,28 @@ def page(p):
   navlist.append(('Blog', '{{wr}}blog'))
   navlist.append(('Site Map', '{{wr}}map'))
   s += nav(navlist)
-  
-  # page content
-  s += p.breadcrumb()
+
+  s += '<div id="bg-wrapper">'
 
   if not p.omit_sidebar:
-    s += '<div style="clear: both;"></div>'
-    s += '<div class="span4" style="float: right;">'
-    s += utils.md(p.sidebar)
+    s += '<div class="span3" id="sidebar">'
+    s += '<div class="well sidebar-nav">'
+    s += p.sidebar
     s += '</div>'
-  
+    s += '</div>'
+
+  s += '<div class="container" style="width: 800px;">'
+
+  # page content
+  s += '<div id="page-body">'
+  s += p.breadcrumb()
   s += utils.md(p.content)
-  
+  s += '</div>'
+
   # end page
   s += '</div>'
+  s += '</div>'
   s += parts.load('footer')
-  s += '</div>'
-  s += '</div>'
-  s += '<br>'*10
   s += '</body>'
   s += '</html>'
   
