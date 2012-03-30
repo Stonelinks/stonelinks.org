@@ -3,9 +3,6 @@ import config
 import utils
 import os
 
-def tag(tag, content):
-  return '<' + tag + '>' + content + '</' + tag + '>'
-
 def md2wp(mdfile, htmldst):
   html = utils.mdfile2html(mdfile)
   html = page(html)
@@ -52,7 +49,7 @@ def page(p):
   s = '<!DOCTYPE html><html>'
   s += '<head>'
   
-  s += tag('title', '{{sn}} | ' + p.human_name)
+  s += '<title>{{sn}} | ' + p.human_name + '</title>'
   
   s += parts.load('favicon')
 
@@ -63,8 +60,8 @@ def page(p):
     s += parts.load('bootstrap_css')
 
   s += parts.load('js_libs')
+  s += parts.load('google_analytics')
 
-  
   # end head, start page
   s += '</head><body>'
 
