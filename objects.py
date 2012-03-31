@@ -4,6 +4,8 @@ import pages
 import utils
 import config
 import time
+import gallery
+import re
 
 class page(object):
   def __init__(self):
@@ -59,6 +61,13 @@ class page(object):
 
     s = s.replace('{{sn}}', config.site_name) # site name
     s = s.replace('{{st}}', config.site_tag) # site tag
+    
+    # galleries
+    gallery_re = re.compile('\{\{gallery=".*"\}\}')
+    for gal in gallery_re.findall(s):
+      gallery_address = gal.split('"')[1]
+      s = s.replace(gal, gallery.make_gallery(gallery_address))
+
     
     # social networks
     s = s.replace('{{social_small}}', pages.social_small())

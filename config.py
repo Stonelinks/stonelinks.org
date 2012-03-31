@@ -13,3 +13,5 @@ social_networks = {
 }
 
 use_less = False
+
+gallery_root = "static/img/galleries/"
