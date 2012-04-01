@@ -15,3 +15,4 @@ social_networks = {
 use_less = False
 
 gallery_root = "static/img/galleries/"
+blog_entries_per_page = 8

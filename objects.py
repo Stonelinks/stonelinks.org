@@ -6,6 +6,7 @@ import config
 import time
 import gallery
 import re
+import blog
 
 class page(object):
   def __init__(self):
@@ -120,6 +121,8 @@ class site(object):
     print self.traverse(print_func)
   
   def page_obj(self, d, level, is_dir=False):
+    
+    # oh god...
     path = '/'.join(d.split('/')[1:-1])
     filename = d.split('/')[-1].split('.')[0]
     
@@ -220,48 +223,7 @@ class site(object):
   def gen_blog(self):
     def blog_index(p):
       if p.name == 'blog':
-        n = page()
-        n.human_name = 'Blog'
-        n.name = 'index'
-        n.level = p.level + 1
-        n.path = os.path.join(p.path, 'blog')
-        n.destination = os.path.join(p.destination, 'blog')
-        n.omit_sidebar = False
-        s = ''
-        #s = '#' + n.human_name + '\n\n'
-        #s += '<br>'*4 + '\n'
-        sidebar = '<h3>Archives</h3>'
-        sidebar += '<ul class="nav nav-list">'
-        blog = {}
-        for c in p.children:
-          date = c.content[c.content.find('\n') + 1:]
-          date = date[:date.find('\n')]
-          c.date = date
-          key = time.mktime(time.strptime(date, '%m/%d/%Y'))
-          blog[key] = c
-        
-        for k in reversed(sorted(blog.iterkeys())):
-          c = blog[k]
-          blog_summary = '##[' + c.human_name + '](' + c.address() +')\n'
-          blog_summary += '<br>\n'
-          wordlist = c.content[c.content.find('\n') + 1:]
-          wordlist = wordlist[wordlist.find('\n'):]
-          wordlist = wordlist.replace('#','##').split(' ')
-          blog_summary += 'Date: ' + c.date + '\n\n'
-          blog_summary += ' '.join(wordlist[:90])
-          blog_summary += '\n'*2
-          blog_summary += '[Read more...](' + c.address() +')\n'
-          blog_summary += '<br>'*3 + '<hr>\n'
-          s += blog_summary
-          sidebar += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
-        sidebar += '</ul>'
-        
-        for c in p.children:
-          c.sidebar = sidebar.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
-                      '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
-        n.sidebar = sidebar
-        n.content = s
-        p.children.append(n)
+        blog.make_blog(p)
       return ''
     self.traverse(blog_index)
 
