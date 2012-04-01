@@ -25,6 +25,8 @@ class page(object):
     self.is_auto_index = False
     self.children = []
     
+    self.enable_comments = True
+    
   def breadcrumb(self):
     if self.level == 1:
       return ''
@@ -36,11 +38,10 @@ class page(object):
         d = l[:i + 1]
         d.append('index.html')
         s.append('<a href="{{wr}}' + '/'.join(d) + '">' + p.capitalize() + '</a>')
-        i+=1
+        i += 1
       s.append(self.human_name)
       s.insert(0, '<a href="{{wr}}">Home</a>')
       
-      # TODO: make this less ugly 
       s = '<small>' + ' &rarr; '.join(s) + '</small><hr>'
       s = s.replace(' &rarr; <a href="{{wr}}/index.html"></a>', '')
       return s
@@ -54,10 +55,10 @@ class page(object):
   
   def make_page(self):
     self.page_html = pages.page(self)
-    self.pagefilter()
+    self.page_filter()
     return self.page_html
-  
-  def pagefilter(self):
+
+  def page_filter(self):
     s = self.page_html
 
     s = s.replace('{{sn}}', config.site_name) # site name
@@ -69,10 +70,11 @@ class page(object):
       gallery_address = gal.split('"')[1]
       s = s.replace(gal, gallery.make_gallery(gallery_address))
 
-    
     # social networks
     s = s.replace('{{social_small}}', pages.social_small())
     s = s.replace('{{social_large}}', pages.social_large())
+    
+    s = s.replace('{{disable comments}}', '')
     
     # In order to make the website as portable as possible, 
     # all links generated are relative to the root
@@ -81,19 +83,6 @@ class page(object):
     s = s.replace('{{wr}}', '../'*rli)
     self.page_html = s
 
-  def __str__(self):
-    def q(s):
-      return ' '*3 + str(s) + '\n'
-    s = q(self.human_name + ':')
-    s += q(self.name)
-    s += q(self.path)
-    s += q(self.address())
-    s += q(self.level)
-    s += q(self.content)
-    s += q(self.destination)
-    s += '\n'*3
-    return s
-    
 class site(object):
   def __init__(self):
     self.source = 'content'
@@ -102,7 +91,6 @@ class site(object):
     self.root = None
     
     self.build_tree(None, self.source)
-    #self.print_tree()
     
   def traverse(self, t_func):
     def _traverse(p, lvl, t_func):
@@ -116,10 +104,6 @@ class site(object):
         return s
     return _traverse(self.root, 0, t_func)
     
-  def print_tree(self):
-    print_func = lambda p: '  '*p.level + '- ' + p.human_name + '\n'
-    print self.traverse(print_func)
-  
   def page_obj(self, d, level, is_dir=False):
     
     # oh god...

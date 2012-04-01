@@ -44,6 +44,26 @@ def social_large():
   s += '</table></div>'
   return s
 
+def comments(p):
+  if '{{disable comments}}' in p.content:
+    print "disabling comments for ", p.human_name
+    p.enable_comments = False
+  
+  if p.is_auto_index or p.is_dir:
+    p.enable_comments = False
+  
+  if p.enable_comments:
+    comment_html = '<br><hr>'
+    comment_html += parts.load('comments')
+    
+    # id based on address
+    comment_html = comment_html.replace('{{disqus_identifier}}', p.address())
+    return comment_html
+  else:
+    print "page", p.human_name, "has comments disabled"
+  return ''
+
+
 def page(p):
   # beginning of head
   s = '<!DOCTYPE html><html>'
@@ -88,6 +108,8 @@ def page(p):
   s += '<div id="page-body">'
   s += p.breadcrumb()
   s += utils.md(p.content)
+  s += '<hr>'
+  s += comments(p)
   s += '</div>'
 
   # end page

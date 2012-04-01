@@ -7,7 +7,7 @@ import utils
 def pagination(blog_entries, blog_indexes):
   for i in range(len(blog_entries)):
     this_page = blog_entries[i][0]
-    s = '<hr>'
+    s = '<br><hr>'
     if i > 0:
       prev_page = blog_entries[i - 1][0]
       s += '\n'*3 + '<b class="pull-left">&larr; %s</b>' % (utils.page_link(prev_page))
@@ -19,7 +19,7 @@ def pagination(blog_entries, blog_indexes):
     
   for i in range(len(blog_indexes)):
     this_index = blog_indexes[i]
-    s = '<hr>'
+    s = '<br><hr>'
     if i > 0:
       prev_index = blog_indexes[i - 1]
       s += '\n'*3 + '<b class="pull-left">&larr; <a href="%s">Previous Page</a></b>' % (prev_index.address())
@@ -86,7 +86,7 @@ def make_blog(p):
 
     for c, summary in segment:
       s += summary
-      sidebar += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
+      sidebar += '<li>%s</li>' % (utils.page_link(c))
     sidebar += '</ul>'
     
     for c, _ in segment:
