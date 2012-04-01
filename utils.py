@@ -4,11 +4,6 @@ def md(string):
   md = markdown.Markdown()
   return md.convert(unicode(string))
 
-def md2file(path, filename, filecontents):
-  f = open(path + filename, 'w')
-  f.write(md(filecontents))
-  f.close()
-
 def filewrite(file, contents):
   f = open(file, 'w')
   f.write(contents)
@@ -26,6 +21,9 @@ def mdfile2html(mdfile):
   f.close()
   return html
 
+def page_link(p):
+  return '<a href="%s">%s</a>' % (p.address(), p.human_name)
+
 def clamp(a, b, c):
   if c <= a:
     return a
@@ -33,3 +31,4 @@ def clamp(a, b, c):
     return b
   else:
     return c
+

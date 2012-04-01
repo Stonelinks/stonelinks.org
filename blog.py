@@ -2,6 +2,7 @@ import config
 import time
 import objects
 import os
+import utils
 
 def make_blog(p):
   blog = {}
@@ -17,7 +18,7 @@ def make_blog(p):
     wordlist = wordlist[wordlist.find('\n'):]
     wordlist = wordlist.replace('#','##').split(' ')
     
-    blog_summary += 'Date: ' + c.date + '\n\n'
+    blog_summary += c.date + '\n\n'
     blog_summary += ' '.join(wordlist[:90])
     blog_summary += '\n'*2
     blog_summary += '[Read more...](' + c.address() +')\n'
@@ -25,6 +26,7 @@ def make_blog(p):
     blog[key] = (c, blog_summary)
   
   blog_list = []
+  blog_indexes = []
   for k in reversed(sorted(blog.iterkeys())):
     blog_list.append(blog[k])
     
@@ -59,6 +61,31 @@ def make_blog(p):
     n.sidebar = sidebar
     n.content = s
     p.children.append(n)
+    blog_indexes.append(n)
+  
+  for i in range(len(blog_list)):
+    this_page = blog_list[i][0]
+    s = '<hr>'
+    if i > 0:
+      prev_page = blog_list[i - 1][0]
+      s += '\n'*3 + '<b class="pull-left">&larr; %s</b>' % (utils.page_link(prev_page))
+      
+    if i < len(blog_list) - 1:
+      next_page = blog_list[i + 1][0]
+      s += '\n'*3 + '<b class="pull-right">%s &rarr;</b>' % (utils.page_link(next_page))
+    this_page.content += s
+    
+  for i in range(len(blog_indexes)):
+    this_index = blog_indexes[i]
+    s = '<hr>'
+    if i > 0:
+      prev_index = blog_indexes[i - 1]
+      s += '\n'*3 + '<b class="pull-left">&larr; <a href="%s">Previous Page</a></b>' % (prev_index.address())
+      
+    if i < len(blog_indexes) - 1:
+      next_index = blog_indexes[i + 1]
+      s += '\n'*3 + '<b class="pull-right"><a href="%s">Next Page</a> &rarr;</b>' % (next_index.address())
+    this_index.content += s
   
   full_archives = objects.page()
   full_archives.human_name = 'Full Archives'
@@ -75,6 +102,3 @@ def make_blog(p):
     full_archives.sidebar += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
   full_archives.sidebar += '</ul>'
   p.children.append(full_archives)
-
-
-
