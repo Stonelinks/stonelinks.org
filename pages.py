@@ -3,16 +3,6 @@ import config
 import utils
 import os
 
-def md2wp(mdfile, htmldst):
-  html = utils.mdfile2html(mdfile)
-  html = page(html)
-  filename = mdfile.split('/')[-1]
-  filename = filename.split('.')[-2]
-  filename = filename + '.html'
-  f = open(os.path.join(htmldst, filename), 'w')
-  f.write(html)
-  f.close()
-
 def nav(l):
   s = parts.load('nav.begin')
   for link, address in l:
@@ -46,14 +36,14 @@ def social_large():
 
 def comments(p):
   if '{{disable comments}}' in p.content:
-    print "disabling comments for ", p.human_name
+    print "Disabling comments for", p.human_name
     p.enable_comments = False
   
   if p.is_auto_index or p.is_dir:
     p.enable_comments = False
   
   if p.enable_comments:
-    comment_html = '<br><hr>'
+    comment_html = '<br>'
     comment_html += parts.load('comments')
     
     # id based on address
@@ -71,17 +61,17 @@ def page(p):
   
   s += '<title>{{sn}} | ' + p.human_name + '</title>'
   
-  s += parts.load('favicon')
+  s += utils.minify(parts.load('favicon'))
 
   # style
   if config.use_less:
-    s += parts.load('bootstrap_less')
+    s += utils.minify(parts.load('bootstrap_less'))
   else:
-    s += parts.load('bootstrap_css')
+    s += utils.minify(parts.load('bootstrap_css'))
 
-  s += parts.load('js_libs')
-  s += parts.load('google_analytics')
-
+  s += utils.minify(parts.load('js_libs'))
+  s += utils.minify(parts.load('google_analytics'))
+  
   # end head, start page
   s += '</head><body>'
 
@@ -91,7 +81,7 @@ def page(p):
   navlist.append(('Projects', '{{wr}}projects'))
   navlist.append(('Blog', '{{wr}}blog'))
   navlist.append(('Site Map', '{{wr}}map'))
-  s += nav(navlist)
+  s += utils.minify(nav(navlist))
 
   s += '<div id="bg-wrapper">'
 
@@ -109,13 +99,13 @@ def page(p):
   s += p.breadcrumb()
   s += utils.md(p.content)
   s += '<hr>'
-  s += comments(p)
+  s += utils.minify(comments(p))
   s += '</div>'
 
   # end page
   s += '</div>'
   s += '</div>'
-  s += parts.load('footer')
+  s += utils.minify(parts.load('footer'))
   s += '</body>'
   s += '</html>'
   

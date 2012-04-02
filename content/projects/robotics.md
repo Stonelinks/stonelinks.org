@@ -56,3 +56,5 @@ This was the first year our school had a First Robotics team, and our rookie tea
 ##The RCX Lego Programmable Brick - circa 4th grade (\~1999)
 
 I may or may not owe approximately all of my engineering and mechanical intuition to Legos. I used to (and most likely still do -- I used this all through high school) love playing with these things. The pinnacle of any Lego set I have ever gotten or probably will ever get has to be the Robotics Invention System. Thank god for my generous and understanding parents for not laughing me out of the room when 4th grader me wanted this $200 kit (I'm not spoiled, they made me work for it, don't worry). Just writing about it makes me want to jump out of this chair, run down to the basement and pull it out and start building. I cannot tell you the hours I spent building and programming (though mostly building) with this thing. More than any other robot on this page, the RCX played a pivotal role in who I am now as a roboticist (if I can even call myself that), as it is endlessly configurable by curious youngsters such as myself.
+
+{{disable comments}}

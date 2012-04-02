@@ -8,4 +8,3 @@ Mindshare was an idea I had awhile back as a means of sharing and recording idea
 
 Unfortunately Mindshare is no longer active. It died when I switched stonelinks off wordpress and to the current structure. If there is enough interst, maybe I'll bring it back.
 
-

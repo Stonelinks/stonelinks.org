@@ -84,3 +84,5 @@ I very well may owe all of my inspiration to pursue robotics to that silly yello
 * * * * *
 
 This concludes the list. I realize it is long, but thank you for reading it! I'd like to close by saying that from what I have seen of Anybots, from both an engineer and a consumer's perspective, I am very impressed with your telepresence robots. Feel free to contact me or let me know if I can provide references for you. Again thank you for your time and consideration and I'd love to be a part of your team!
+
+{{disable comments}}

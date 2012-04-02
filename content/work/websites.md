@@ -29,3 +29,4 @@ Here are some websites I've made and / or improved, maintained, etc.
 
 My schedule is very full right now with classes, writing documentation from my work over the summer, and with existing clients (namely Dr. Lakshmi and the Baruch Center). Therefore I'd be hesitant to bring on any new clients. That being said, if for some reason you really need / want me, [here is how to contact me]({{wr}}luke/contact).
 
+{{disable comments}}

@@ -7,7 +7,7 @@ import utils
 def pagination(blog_entries, blog_indexes):
   for i in range(len(blog_entries)):
     this_page = blog_entries[i][0]
-    s = '<br><hr>'
+    s = '<br><span>'
     if i > 0:
       prev_page = blog_entries[i - 1][0]
       s += '\n'*3 + '<b class="pull-left">&larr; %s</b>' % (utils.page_link(prev_page))
@@ -15,11 +15,11 @@ def pagination(blog_entries, blog_indexes):
     if i < len(blog_entries) - 1:
       next_page = blog_entries[i + 1][0]
       s += '\n'*3 + '<b class="pull-right">%s &rarr;</b>' % (utils.page_link(next_page))
-    this_page.content += s
+    this_page.content += s + '</span>'
     
   for i in range(len(blog_indexes)):
     this_index = blog_indexes[i]
-    s = '<br><hr>'
+    s = '<br><span>'
     if i > 0:
       prev_index = blog_indexes[i - 1]
       s += '\n'*3 + '<b class="pull-left">&larr; <a href="%s">Previous Page</a></b>' % (prev_index.address())
@@ -27,7 +27,7 @@ def pagination(blog_entries, blog_indexes):
     if i < len(blog_indexes) - 1:
       next_index = blog_indexes[i + 1]
       s += '\n'*3 + '<b class="pull-right"><a href="%s">Next Page</a> &rarr;</b>' % (next_index.address())
-    this_index.content += s
+    this_index.content += s + '</span>'
 
 def full_archive(p, blog_entries):
   full_archives = objects.page()
@@ -37,6 +37,7 @@ def full_archive(p, blog_entries):
   full_archives.path = os.path.join(p.path, 'blog')
   full_archives.destination = os.path.join(p.destination, 'blog')
   full_archives.omit_sidebar = False
+  full_archives.enable_comments = False
   full_archives.sidebar = '<h3>Archives</h3>'
   full_archives.sidebar += '<ul class="nav nav-list">'
   full_archives.content = '#Full Archives\n\n'
@@ -106,6 +107,7 @@ def make_blog(p):
     n.omit_sidebar = False
     n.sidebar = sidebar
     n.content = s
+    n.enable_comments = False
     p.children.append(n)
     blog_indexes.append(n)
   

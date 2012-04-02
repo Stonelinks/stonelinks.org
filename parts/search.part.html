@@ -5,17 +5,19 @@
 // This notice must stay intact for use
 
 //Enter domain of site to search.
-var domainroot="stonelinks.org"
 
-function Gsitesearch(curobj){
-curobj.q.value="site:" + domainroot + " " + curobj.qfront.value
-}
+var domainroot="stonelinks.org";
+
+function Gsitesearch(curobj) {
+  curobj.q.value = "site:" + domainroot + " " + curobj.qfront.value;
+};
 
 </script>
 
-<form class="navbar-search pull-right" action="http://www.google.com/search" method="get" onSubmit="Gsitesearch(this)">
 
-<input name="q" type="hidden" />
-<input name="qfront" type="text" class="search-query" placeholder="Search" />
+<form action="http://www.google.com/search" class="navbar-search pull-right" method="get" onSubmit="Gsitesearch(this)">
+
+<input name="q" type="hidden">
+<input name="qfront" type="text" class="search-query" placeholder="Search">
 
 </form>

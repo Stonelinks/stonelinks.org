@@ -32,6 +32,7 @@ Once move was done, I wrote some test code and it worked like a champ! I then st
 * * * * *
 
 So that was it! Now I have unrestricted access to use python to do (almost) whatever I want! Looking at the python bindings for OpenCV next!
+
 [Arduino main code](http://dl.dropbox.com/u/4428042/stonelinks_public/main.cpp)
 [Arduino servo pulsewidth diagnostic code](http://dl.dropbox.com/u/4428042/stonelinks_public/servolimits.cpp)
 [Python main code](http://dl.dropbox.com/u/4428042/stonelinks_public/main.py)

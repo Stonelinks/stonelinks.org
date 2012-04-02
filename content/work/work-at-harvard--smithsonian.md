@@ -29,3 +29,4 @@ Once a run is started, the user sits back and monitors the chamber and magnetron
 
 Further work I've done includes unifying all versions of of the software for all the different chambers / optic geometries, designing chamber hardware from CAD, to ordering fabrication of parts through machinists, chamber assembly, supervising a high school student, fixing a $70,000 profile-meter, decrease shutter latency by designing a money saving part, the list goes on. Unfortunately Suzanne wanted me to stop working on the documentation I was doing. A half finished version of documentation is available [here]({{wr}}luke/Dropbox/CfA/documentation/Main_Format.pdf) for those that are curious.
 
+{{disable comments}}
