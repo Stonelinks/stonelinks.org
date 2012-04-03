@@ -144,7 +144,14 @@ class site(object):
     if self.root == None:
       self.root = p
     else:
-      parent.children.append(p)
+      if is_dir:
+        parent.children.append(p)
+      else:
+        extension = d.split('/')[-1].split('.')[-1]
+        if extension == 'md':
+          parent.children.append(p)
+        else:
+          print d, "is not a markdown file!"
     
     if is_dir:
       for item in sorted(os.listdir(d)):
