@@ -8,10 +8,6 @@ this is to help give me a leg up converting over what is already in stonelinks f
 import string
 from xml.dom import minidom
 
-def format_filename(s):
-  exclude = set(string.punctuation)
-  s = ''.join(ch for ch in s if ch not in exclude)
-  return s.replace(' ', '-').lower()
 
 def convert(infile, outdir):
     # First we parse the XML file into a list of posts.
