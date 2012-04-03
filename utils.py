@@ -42,7 +42,6 @@ def minify(t):
   re_list = [comment_re0, comment_re1, comment_re2, comment_re3]
   for _re in re_list:
     for comment in _re.findall(t):
-      print comment
       t = t.replace(comment, '')
 
   t = t.replace('\n', ' ')

@@ -40,7 +40,6 @@ def full_archive(p, blog_entries):
   full_archives.enable_comments = False
   full_archives.sidebar = '<h3>Archives</h3>'
   full_archives.sidebar += '<ul class="nav nav-list">'
-  full_archives.content = '#Full Archives\n\n'
   for c, summary in blog_entries:
     full_archives.content += summary
     full_archives.sidebar += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
@@ -88,6 +87,8 @@ def make_blog(p):
     for c, summary in segment:
       s += summary
       sidebar += '<li>%s</li>' % (utils.page_link(c))
+    sidebar += '<li class="divider"></li>'
+    sidebar += '<li><a href="{{wr}}blog/archives.html"><b>All Entries &rarr;</b></a></li>'
     sidebar += '</ul>'
     
     for c, _ in segment:
