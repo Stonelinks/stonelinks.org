@@ -74,6 +74,9 @@ class page(object):
     
     s = s.replace('{{disable comments}}', '')
     
+    s = s.replace('{{ctime}}', time.ctime(time.time()))
+    
+    
     # In order to make the website as portable as possible, 
     # all links generated are relative to the root
     # rli = relative link index
@@ -140,8 +143,7 @@ class site(object):
     basedir = d
     subdirlist = []
     
-    is_dir=os.path.isdir(d)
-    p = self.page_obj(d, level, is_dir=is_dir)
+    p = self.page_obj(d, level, is_dir=os.path.isdir(d))
     p.children = []
     if self.root == None:
       self.root = p
@@ -171,6 +173,7 @@ class site(object):
     p.path = ''
     p.destination = self.to
     p.omit_sidebar = True
+    p.enable_comments = False
     
     s = '#Site Map\n\n'
     map_func = lambda p: '    '*p.level + \
