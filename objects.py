@@ -13,7 +13,6 @@ class page(object):
     self.human_name = ''
     self.name = ''
     self.path = ''
-    self.addr = ''
     self.date = ''
     self.level = ''
     self.content = ''
@@ -48,10 +47,9 @@ class page(object):
 
   def address(self):
     if self.is_dir:
-      self.addr = '{{wr}}' + os.path.join(self.path, self.name, 'index.html')
+      return '{{wr}}' + os.path.join(self.path, self.name, 'index.html')
     else:
-      self.addr = '{{wr}}' + os.path.join(self.path, self.name + '.html')
-    return self.addr
+      return '{{wr}}' + os.path.join(self.path, self.name + '.html')
   
   def make_page(self):
     self.page_html = pages.page(self)
@@ -91,6 +89,10 @@ class site(object):
     self.root = None
     
     self.build_tree(None, self.source)
+    
+    # fix root node
+    self.root.human_name = 'Home'
+    self.root.name = ''
     
   def traverse(self, t_func):
     def _traverse(p, lvl, t_func):
@@ -182,15 +184,16 @@ class site(object):
     def _gen_sidebar(p):
       if p.name == 'blog':
         return ''
-      s = '<h3><a href="%s">%s</a></h3>' % (p.address(), p.human_name)
-      s += '<ul class="nav nav-list">'
-      for c in p.children:
-        s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
-      for c in p.children:
-        c.sidebar = s.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
-                      '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
-        c.sidebar += '</ul>'
-      return ''
+      else:
+        s = '<h3><a href="%s">%s</a></h3>' % (p.address(), p.human_name)
+        s += '<ul class="nav nav-list">'
+        for c in p.children:
+          s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
+        for c in p.children:
+          c.sidebar = s.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
+                        '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
+          c.sidebar += '</ul>'
+        return ''
     self.traverse(_gen_sidebar)
 
   def gen_indexes(self):
