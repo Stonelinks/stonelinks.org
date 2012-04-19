@@ -5,16 +5,15 @@
 
 <script type="text/javascript" src="{{wr}}static/js/jquery.js"></script>
 <script type="text/javascript" src="{{wr}}static/js/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/humane.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/date.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/md5.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/libgithub.min.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/bootstrap-carousel.js"></script>
+<script type="text/javascript" src="{{wr}}static/js/bootstrap-transition.js"></script>
+
 <script type="text/javascript">
-$(function() {
-  // Use this example, or...
-  $('a[@rel*=lightbox]').lightBox(); // Select all links that contains lightbox in the attribute rel
-  // This, or...
-  //$('#gallery a').lightBox(); // Select all links in object with gallery ID
-  // This, or...
-  //$('a.lightbox').lightBox(); // Select all links with lightbox class
-  // This, or...
-  //$('a').lightBox(); // Select all links in the page
-  // ... The possibility are many. Use your creative or choose one in the examples above
-});
+  $(function() {
+    $('a[rel*=lightbox]').lightBox();
+  });
 </script>

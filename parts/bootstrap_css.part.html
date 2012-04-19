@@ -1,8 +1,10 @@
 <link rel="stylesheet" type="text/css" href="{{wr}}static/css/jquery.lightbox-0.5.css" media="screen" />
 <link rel="stylesheet" href="{{wr}}static/css/bootstrap-spacelab.min.css">
+<link type="text/css" rel="stylesheet" href="{{wr}}static/css/libgithub.css" />
 <style type="text/css">
   html, body {
     background-color: #eee;
+    height: 100%;
   }
   
   .navbar {
@@ -15,8 +17,15 @@
   }
   
   #bg-wrapper {
-    background-image: url("{{wr}}static/img/stripe.png");
-    padding-bottom: 200px;
+    margin-bottom: 12px;
+  }
+
+  #wrapper {
+    background-image: url("{{wr}}static/img/bg.png");
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -142px;
   }
   
   #sidebar {
@@ -34,7 +43,7 @@
     background-color: #fff;
     padding: 40px;
     padding-top: 10px;
-
+    
     -webkit-border-radius: 0 0 16px 16px;
        -moz-border-radius: 0 0 16px 16px;
             border-radius: 0 0 16px 16px;
@@ -42,10 +51,16 @@
     border-left: 1px solid #333;
     border-right: 1px solid #333;
     border-bottom: 1px solid #333;
+    
+    margin-bottom: 300px;
   }
   
   .topbar .btn {
     border: 0;
+  }
+  
+  #footer .push {
+    height: 142px;
   }
   
   #footer {
@@ -55,6 +70,7 @@
     padding: 15px;
     padding-bottom: 50px;
     border-top: 1px solid #333;
+    margin: 0;
   }
 </style>
 

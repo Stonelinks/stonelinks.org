@@ -143,7 +143,8 @@ class site(object):
     basedir = d
     subdirlist = []
     
-    p = self.page_obj(d, level, is_dir=os.path.isdir(d))
+    is_dir = os.path.isdir(d)
+    p = self.page_obj(d, level, is_dir=is_dir)
     p.children = []
     if self.root == None:
       self.root = p

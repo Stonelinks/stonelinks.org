@@ -21,7 +21,7 @@ def social_small():
   return s
 
 def social_large():
-  s = '<div class="span4" style="text-align: center;"><table>'
+  s = '<div class="row-fluid"><div class="span4" style="text-align: center;"><table>'
   for k, v in config.social_networks.iteritems():
     s += '<tr><td>'
     s += '<a href ="' + v + '" >'
@@ -31,12 +31,11 @@ def social_large():
     s += '</td><td>'
     s += '<a href ="' + v + '" ><h2>' + k.capitalize().replace('plus', ' +') + '</h2></a>'
     s += '</td></tr>'
-  s += '</table></div>'
+  s += '</table></div></div>'
   return s
 
 def comments(p):
   if '{{disable comments}}' in p.content:
-    print "Disabling comments for", p.human_name
     p.enable_comments = False
   
   if p.is_auto_index or p.is_dir:
@@ -53,8 +52,10 @@ def comments(p):
     print "page", p.human_name, "has comments disabled"
   return ''
 
-
 def page(p):
+  print "building page", p.human_name
+  
+  
   # beginning of head
   s = '<!DOCTYPE html><html>'
   s += '<head>'
@@ -74,6 +75,9 @@ def page(p):
   
   # end head, start page
   s += '</head><body>'
+  
+  # main wrapper
+  s += '<div id="wrapper">'
 
   # top bar and navigation
   navlist = []
@@ -82,7 +86,8 @@ def page(p):
   navlist.append(('Blog', '{{wr}}blog'))
   navlist.append(('Site Map', '{{wr}}map'))
   s += utils.minify(nav(navlist))
-
+  
+  # start bg wrapper
   s += '<div id="bg-wrapper">'
 
   if not p.omit_sidebar:
@@ -91,19 +96,28 @@ def page(p):
     s += p.sidebar
     s += '</div>'
     s += '</div>'
-
+  
+  # start container
   s += '<div class="container" style="width: 800px;">'
 
-  # page content
+  # start content
   s += '<div id="page-body">'
   s += p.breadcrumb()
   s += utils.md(p.content)
   s += '<hr>'
   s += utils.minify(comments(p))
+  
+  # end content
   s += '</div>'
 
-  # end page
+  # end container
   s += '</div>'
+  
+  # end bg wrapper
+  s += '</div>'
+  s += '<div class="push"></div>'
+  
+  # end main wrapper
   s += '</div>'
   s += utils.minify(parts.load('footer'))
   s += '</body>'
