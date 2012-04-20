@@ -73,3 +73,5 @@ It was a carefully calculated design decision. The end goal was to have an easy 
 To get around this, we could have used a windowing toolkit. There are many windowing toolkits for python that we could have used: PyQT, wxPython, Tkinter, etc. However, not all of them support OpenGL widgets and they introduce portability issues when considering the cross platform nature of our simulator (yet another dependency). Finally, windowing toolkits are complex beasts and there simply wasn't enough time to learn how to use them before the simulator needed to be completed.
 
 Therefore, the decision was made to implement a simple terminal window inside OpenGL. This gave us the most control with regards to commands entered to the command prompt. Additionally, it makes the application more portable because no additional library dependencies are introduced.
+
+{{disable comments}}

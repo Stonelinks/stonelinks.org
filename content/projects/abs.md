@@ -53,3 +53,5 @@ $(window).load(function () {
 
 ####Latest Commits to ABS:
 <div id="commits"></div>
+
+{{disable comments}}

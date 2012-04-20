@@ -64,3 +64,5 @@ $(window).load(function () {
 
 ####Latest Commits to Stoolbotics:
 <div id="commits"></div>
+
+{{disable comments}}

@@ -14,7 +14,7 @@ Lucas Doyle's website
   <div class="carousel-inner">
     <div class="item">
       <a href="{{wr}}">
-        <img src="http://twitter.github.com/bootstrap/assets/img/bootstrap-mdo-sfmoma-01.jpg" alt="">
+        <img src="{{wr}}static/img/stoolbotics/5.png" alt="">
       </a>
       <div class="carousel-caption">
         <h4>First Thumbnail label</h4>
@@ -41,7 +41,7 @@ Lucas Doyle's website
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&#8250;</a>
 </div>
 
-I'm passionate about what I do and this website is where I show it! Here is where I collect all my projects, code, writing, documentation and more. Below you can check out some of the highlights and see what's on Stonelinks!
+I'm passionate about what I do and this website is where I show it! Here is where I collect all my projects, code, writing, documentation and more. Below you can check out some of the highlights of Stonelinks!
 
 </div>
 
@@ -62,6 +62,5 @@ I'm passionate about what I do and this website is where I show it! Here is wher
     <p><a class="btn" href="#">About Luke &raquo;</a></p>
   </div>
 </div>
-
 
 {{disable comments}}

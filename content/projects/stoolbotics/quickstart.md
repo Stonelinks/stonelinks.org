@@ -77,3 +77,5 @@ Though you can't see it in a static picture, that joint is now moving pretty fas
 <img src="{{wr}}static/img/stoolbotics/7.png">
 
 This concludes the quickstart. To do more advanced things like play, record, manipulate the environment, drive the simulator from matlab, etc., check out the [usage]({{wr}}projects/stoolbotics/use.html) section!
+
+{{disable comments}}

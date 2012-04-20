@@ -246,3 +246,5 @@ end
 As you can see, since this is technically operating over a network we need to specify a host. If you're running matlab and stoolbotics on the same machine, this will always be 127.0.0.1 for localhost. Technically, you could be running the simulator and matlab on two separate computers. As long as you had the IP address of the computer running the simulator plugged into the 'host' variable inside matlab, everything will still work.
 
 Next, the port needs to match what you entered with the <code>>server start</code> command. From then on, all that needs to happen is to do some calculation, and pass off the comma separated list of joint angled to the simulator.
+
+{{disable comments}}
