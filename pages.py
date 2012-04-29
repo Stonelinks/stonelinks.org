@@ -62,19 +62,22 @@ def page(p):
   
   s += '<title>{{sn}} | ' + p.human_name + '</title>'
   
-  s += utils.minify(parts.load('favicon'))
+  s += parts.load('favicon')
 
   # style
   if config.use_less:
-    s += utils.minify(parts.load('bootstrap_less'))
+    s += parts.load('bootstrap_less')
   else:
-    s += utils.minify(parts.load('bootstrap_css'))
+    s += parts.load('bootstrap_css')
 
-  s += utils.minify(parts.load('js_libs'))
-  s += utils.minify(parts.load('google_analytics'))
+  s += parts.load('js_libs')
+  s += parts.load('google_analytics')
   
   # end head, start page
   s += '</head><body>'
+  
+  # minify
+  #s += utils.minify(s)
   
   # main wrapper
   s += '<div id="wrapper">'
