@@ -1,5 +1,4 @@
 #Features
-
 - Page heiarchy
     - Detection of the heiarchy of pages on the website
     - Automatic generation of a site map based on heiarchy
@@ -16,8 +15,6 @@
         - Relative links everywhere
 - Misc
     - Write all content in markdown!
-
 #Features that would be nice
-
 - Comments via disqus
 - Galleries from directories of pictures

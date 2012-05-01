@@ -1,16 +1,12 @@
 #Projects
-
 <br>
-
 Here is where I showcase and document the various projects I spend my time on. They span many years, multiple programming languages, and are about everything from robotics to web applications. Click on each icon to learn more about the project.
-
 <br>
 <br>
-
 <div class="row-fluid">
   <div class="span5 projectitem">
       <a href="DaBuzz/index.html">
-        <center><img class="thumbnail" width="70%" src="{{wr}}/static/img/stupid.png"></center>
+        <center><img class="thumbnail" width="70%" src="{{wr}}static/img/stupid.png"></center>
       </a>
       <br>
       <h2>DaBuzz</h2>
@@ -19,7 +15,7 @@ Here is where I showcase and document the various projects I spend my time on. T
   </div>
   <div class="span5 projectitem">
       <a href="stoolbotics/index.html">
-        <center><img class="thumbnail" width="80%" src="{{wr}}/static/img/stoolbotics.png"></center>
+        <center><img class="thumbnail" width="80%" src="{{wr}}static/img/stoolbotics.png"></center>
       </a>
       <br>
       <h2>Stoolbotics</h2>
@@ -59,7 +55,7 @@ Here is where I showcase and document the various projects I spend my time on. T
   </div>
   <div class="span5 projectitem">
       <a href="battlebot/index.html">
-        <center><img class="thumbnail" width="90%" src="{{wr}}/static/img/galleries/battlebot/4.jpg">
+        <center><img class="thumbnail" width="90%" src="{{wr}}static/img/galleries/battlebot/4.jpg">
       </a>
       <br>
       <h2>Battlebots</h2>
@@ -80,5 +76,4 @@ Here is where I showcase and document the various projects I spend my time on. T
       <br>
   </div>
 </div>
-
 {{disable comments}}

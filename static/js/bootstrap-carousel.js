@@ -16,15 +16,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * ========================================================== */
-
-
 !function( $ ){
-
   "use strict"
-
  /* CAROUSEL CLASS DEFINITION
   * ========================= */
-
   var Carousel = function (element, options) {
     this.$element = $(element)
     this.options = $.extend({}, $.fn.carousel.defaults, options)
@@ -33,51 +28,40 @@
       .on('mouseenter', $.proxy(this.pause, this))
       .on('mouseleave', $.proxy(this.cycle, this))
   }
-
   Carousel.prototype = {
-
     cycle: function () {
       this.interval = setInterval($.proxy(this.next, this), this.options.interval)
       return this
     }
-
   , to: function (pos) {
       var $active = this.$element.find('.active')
         , children = $active.parent().children()
         , activePos = children.index($active)
         , that = this
-
       if (pos > (children.length - 1) || pos < 0) return
-
       if (this.sliding) {
         return this.$element.one('slid', function () {
           that.to(pos)
         })
       }
-
       if (activePos == pos) {
         return this.pause().cycle()
       }
-
       return this.slide(pos > activePos ? 'next' : 'prev', $(children[pos]))
     }
-
   , pause: function () {
       clearInterval(this.interval)
       this.interval = null
       return this
     }
-
   , next: function () {
       if (this.sliding) return
       return this.slide('next')
     }
-
   , prev: function () {
       if (this.sliding) return
       return this.slide('prev')
     }
-
   , slide: function (type, next) {
       var $active = this.$element.find('.active')
         , $next = next || $active[type]()
@@ -85,15 +69,10 @@
         , direction = type == 'next' ? 'left' : 'right'
         , fallback  = type == 'next' ? 'first' : 'last'
         , that = this
-
       this.sliding = true
-
       isCycling && this.pause()
-
       $next = $next.length ? $next : this.$element.find('.item')[fallback]()
-
       if ($next.hasClass('active')) return
-
       if (!$.support.transition && this.$element.hasClass('slide')) {
         this.$element.trigger('slide')
         $active.removeClass('active')
@@ -113,18 +92,12 @@
           setTimeout(function () { that.$element.trigger('slid') }, 0)
         })
       }
-
       isCycling && this.cycle()
-
       return this
     }
-
   }
-
-
  /* CAROUSEL PLUGIN DEFINITION
   * ========================== */
-
   $.fn.carousel = function ( option ) {
     return this.each(function () {
       var $this = $(this)
@@ -136,18 +109,13 @@
       else data.cycle()
     })
   }
-
   $.fn.carousel.defaults = {
     interval: 5000
   , pause: 'hover'
   }
-
   $.fn.carousel.Constructor = Carousel
-
-
  /* CAROUSEL DATA-API
   * ================= */
-
   $(function () {
     $('body').on('click.carousel.data-api', '[data-slide]', function ( e ) {
       var $this = $(this), href
@@ -157,5 +125,4 @@
       e.preventDefault()
     })
   })
-
 }( window.jQuery );
