@@ -1,9 +1,11 @@
 #Execute, Time and Plot C++ Programs with Python
 02/03/2011
 
-[![Hate excel? Have python take all the pain away from you!]({{wr}}wp-content/uploads/2011/02/Fig-300x225.png "Fig")]({{wr}}wp-content/uploads/2011/02/Fig.png)
+<center>
+<img src="http://stonelinks.org/wp-content/uploads/2011/02/Fig.png" class="thumbnail" width="80%">
+</center>
 
-This should appeal to everyone out there who needs a quick way to analyze the runtime time of a bunch of commands to a program given an arbitrary list of arguments. Hating excel/openoffice/spreadsheets in general is optional.
+Hate excel? Have python take all the pain away from you! This should appeal to everyone out there who needs a quick way to analyze the runtime time of a bunch of commands to a program given an arbitrary list of arguments. Hating excel/openoffice/spreadsheets in general is optional.
 
 Just like every programmer, I am always trying to find new and interesting ways of automating myself out of a job. To that end, I wrote a pretty cool program last night to help automate my first algorithms lab.
 

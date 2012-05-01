@@ -61,7 +61,7 @@ def blog_dict(p):
     wordlist = wordlist.replace('#','##').split(' ')
     
     blog_summary += c.date + '\n\n'
-    blog_summary += ' '.join(wordlist[:90])
+    blog_summary += ' '.join(wordlist[:100])
     blog_summary += '\n'*2
     blog_summary += '[Read more...](' + c.address() +')\n'
     blog_summary += '<br>'*3 + '<hr>\n'
@@ -89,6 +89,8 @@ def make_blog(p):
       sidebar += '<li>%s</li>' % (utils.page_link(c))
     sidebar += '<li class="divider"></li>'
     sidebar += '<li><a href="{{wr}}blog/archives.html"><b>All Entries &rarr;</b></a></li>'
+    sidebar += '<li class="divider"></li>'
+    sidebar += '<li><a onclick="goBack()"><b>&larr; Go Back</b></a></li>'
     sidebar += '</ul>'
     
     for c, _ in segment:

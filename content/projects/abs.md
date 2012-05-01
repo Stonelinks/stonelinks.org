@@ -11,14 +11,14 @@ The The Awesome Backup System (ABS) is a cross platform file backup solution. It
 
 <br>
 
-###Demo
-####You can see and use ABS right now!
-####Check out [stonelinks.org/ABS/](stonelinks.org/ABS/)
+##Demo
+###You can see and use ABS right now!
+###Check out [stonelinks.org/ABS/](stonelinks.org/ABS/)
 (Please don't fill my server up with crap!)
 
 <br>
 
-###Features
+##Features
 
 ***Native clients:*** One of the design goals for ABS was that all clients are native to their platforms. We really wanted to stay away from cross platform tools like java or Qt for the GUI. Using these tools would have cut down on development time, but we felt that a customer's has the right to expect a certain look and feel to their applications that are consistent with the platform they are running on.
  
@@ -28,7 +28,7 @@ The The Awesome Backup System (ABS) is a cross platform file backup solution. It
 
 <br>
 
-###Possible Future Improvements:
+##Possible Future Improvements:
 
 ***Security:*** ABS is lacking is in the security department. It being more or less a prototype we wrote for a class, security wasn't the first thing we designed it for. Still, we are using HTTPS (though we feel like that alone isn't a very good security measure) and never store or transfer passwords in plaintext. In fact, because the clients (and HTTPS technically) are stateless entities, every API request needs to be authenticated for it to do anything. This means no cookies or any artifiact of your authentication other than a hashed password remains on the client.
 
@@ -36,10 +36,10 @@ The The Awesome Backup System (ABS) is a cross platform file backup solution. It
 
 <br>
 
-###Code
+##Code
 
 ABS is open source! See the code that runs ABS on github!
-####[https://github.com/Lorem/ABS](https://github.com/Lorem/ABS)
+###[https://github.com/Lorem/ABS](https://github.com/Lorem/ABS)
 
 <br>
 
@@ -51,7 +51,7 @@ $(window).load(function () {
 });
 </script>
 
-####Latest Commits to ABS:
+###Latest Commits to ABS:
 <div id="commits"></div>
 
 {{disable comments}}

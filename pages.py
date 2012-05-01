@@ -77,7 +77,7 @@ def page(p):
   s += '</head><body>'
   
   # minify
-  #s += utils.minify(s)
+  s = utils.minify(s)
   
   # main wrapper
   s += '<div id="wrapper">'

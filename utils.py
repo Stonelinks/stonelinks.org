@@ -1,9 +1,8 @@
-import contrib.markdown as markdown
+import markdown
 import re
 
 def md(string):
-  md = markdown.Markdown()
-  return md.convert(unicode(string))
+  return markdown.markdown(unicode(string), extensions=['headerid'])
 
 def filewrite(file, contents):
   f = open(file, 'w')

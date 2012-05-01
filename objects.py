@@ -193,9 +193,13 @@ class site(object):
         s += '<ul class="nav nav-list">'
         for c in p.children:
           s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
+        
         for c in p.children:
           c.sidebar = s.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
-                        '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
+                      '<li class="active"><a href="%s">%s</a></li>' % (c.address(), c.human_name))
+          if c.level > 1:
+            c.sidebar += '<li class="divider"></li>'
+            c.sidebar += '<li><a onclick="goBack()"><b>&larr; Go Back</b></a></li>'
           c.sidebar += '</ul>'
         return ''
     self.traverse(_gen_sidebar)
@@ -212,6 +216,7 @@ class site(object):
       s = '#' + p.human_name + '\n\n'
       for c in p.children:
         s += '- ##[%s](%s)\n' % (c.human_name, c.address())
+      s += '\n\n<hr><a href="../"><h2>&larr; Back up</h2></a>'
       p.content = s
       p.is_auto_index = True
       p.destination = os.path.join(p.destination, p.name)

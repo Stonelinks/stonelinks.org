@@ -4,10 +4,9 @@
 
 <br>
 
-<img src="{{wr}}/static/img/logo-big.png">
+<img class="thumbnail" src="{{wr}}/static/img/logo-big.png" width="60%">
 
 </center>
-
 
 This project is my take on how writing a mostly static website with a lot of content should work. It is what runs this very website. It requires no server side scripting or database of any kind. In fact it is all static files that are compiled from simple markdown files. It is a not well suited for web apps with an API and lots of dynamic content.
 
