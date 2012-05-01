@@ -7,12 +7,14 @@ div.libgithub-badge-outline {
   padding: 5px;
   padding-top: 0px;
   color: #444;
+
   border: 2px solid #ccc;
   background-color: #f0f0f0;
   -moz-border-radius: 14px;
   -khtml-border-radius: 14px;
   border-radius: 14px;
 }
+
 div.libgithub-badge-username {
   border: 0px;
   margin: 0px;
@@ -23,9 +25,11 @@ div.libgithub-badge-username {
   background-repeat: no-repeat;
   background-position: 0px 1px;
 }
+
 div.libgithub-badge-diffline {
   font-weight: bold;
 }
+
 div.libgithub-badge-commitmessage {
   font-style: italic;
   font-family: Trebuchet MS, Arial, sans-serif;
@@ -36,10 +40,12 @@ div.libgithub-badge-commitmessage {
   background-repeat: no-repeat;
   background-position: 70px 0px;
 }
+
 div.libgithub-badge-diffstat {
   font-weight: normal;
   font-size: 0.9em;
 }
+
 a.libgithub-badge-commitid,
 a.libgithub-badge-commitid:visited,
 a.libgithub-badge-commitid:link,
@@ -47,9 +53,11 @@ a.libgithub-badge-commitid:active {
   color: #88c22c;
   text-decoration: none;
 }
+
 a.libgithub-badge-commitid: hover {
   text-decoration: underline;
 }
+
 a.libgithub-badge-username,
 a.libgithub-badge-username:visited,
 a.libgithub-badge-username:link a.libgithub-badge-username:active {
@@ -57,37 +65,46 @@ a.libgithub-badge-username:link a.libgithub-badge-username:active {
   text-decoration: underline;
   font-size: 1.1em;
 }
+
 a.libgithub-badge-username: hover {
   text-decoration: none;
 }
+
 span.libgithub-badge-text, span.libgithub-badge-text-date {
 }
+
 span.libgithub-badge-diffadded {
   color: green;
   background-color: transparent;
 }
+
 span.libgithub-badge-diffremoved {
   color: red;
   background-color: transparent;
 }
+
 span.libgithub-badge-diffmodified {
   color: purple;
   background-color: transparent;
 }
+
 img.libgithub-badge-gravatar {
   border: 1px solid #fff6a9;
   margin: 5px;
   float: left;
   margin: 2px;
 }
+
 div.libgithub-badge-filelist {
   margin-top: 10px;
 }
+
 div.libgithub-badge-filelist ul {
   list-style-type: square;
   list-style-position: inside;
   margin: 0px;
 }
+
 a.libgithub-badge-showMoreLink,
 a.libgithub-badge-showMoreLink:visited,
 a.libgithub-badge-showMoreLink:link a.libgithub-badge-showMoreLink:active {
@@ -96,18 +113,23 @@ a.libgithub-badge-showMoreLink:link a.libgithub-badge-showMoreLink:active {
   font-size: 0.8em;
   padding-left: 1em;
 }
+
 a.libgithub-badge-showMoreLink: hover {
   text-decoration: none;
 }
+
+
 div.libgithub-activity-line: {
   display: inline;
 }
+
 img.libgithub-activity-gravatar {
   border: 1px solid #666666;
   float: left;
   margin: 2px;
   margin-right: 5px;
 }
+
 a.libgithub-activity-username,
 a.libgithub-activity-username:visited,
 a.libgithub-activity-username:link,
@@ -115,6 +137,7 @@ a.libgithub-activity-username:active {
   color: #88c22c;
   text-decoration: none;
 }
+
 a.libgithub-activity-commitid,
 a.libgithub-activity-commitid:visited,
 a.libgithub-activity-commitid:link,
@@ -122,5 +145,6 @@ a.libgithub-activity-commitid:active {
   color: #88c22c;
   text-decoration: none;
 }
+
 span.libgithub-activity-date {
 }

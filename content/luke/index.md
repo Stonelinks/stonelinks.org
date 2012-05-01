@@ -1,10 +1,15 @@
 #About Luke
+
 <center>
 <img class="thumbnail" width="40%" src="{{wr}}static/img/me.jpg">
 </center>
 <br>
+
 **Welcome!** I am a B.S candidate in [Computer and Systems Engineering](http://www.ecse.rpi.edu/) at the RPI [School of Engineering](http://www.eng.rpi.edu/soe/). Currently, I also [work]({{wr}}work/index.html) for the [Harvard-Smithsonian Center for Astrophysics](http://www.cfa.harvard.edu/hea/) developing and integrating the hardware and software systems to automate the fabrication of multilayer coatings on the surface of optics for (eventual) use in [space based observatories](http://ixo.gsfc.nasa.gov/). This past summer I had the phenomenal opportunity to work at a Silicon Valley robotics company called [Anybots](http://www.anybots.com/#front) on their telepresence robots. I also do freelance [website]({{wr}}work/websites.html) work, both back end programming / administration to front end web design.
+
 The core of my technical interests are deep and varied, but are generally concentrated within the field of robotics and automation. I have experience / interest in: micro controller [programming](http://litec.rpi.edu/) and [applications](http://www.arduino.cc/), [CAD](http://www.solidworks.com/), [CAM](http://www.plm.automation.siemens.com/en_us/products/nx/index.shtml), automated [manufacturing](http://www.makerbot.com/), systems integration, autonomous and semi-autonomous robotics, robotic locomotion, control, [manipulation](http://www.youtube.com/watch?v=Gv5B63HeF1E&feature=related), machine vision, artificial intelligence and remote controlled [airplane / helicopter](http://www.gwsus.com/english/english.htm) design and operation. I do not consider myself an expert on any single subject, but I have a lot of experience and am always looking for new and interesting technical challenges to both deepen and broaden my skills!
+
 In addition to the above interests, I have always had a very strong connection to computers and computer programming. Languages / environments I currently use or have used are C, C++, [LabVIEW](http://www.ni.com/labview/), Java, Bash, LISP, PHP (some [AJAX](http://jquery.com/)), CSS and HTML (if you can count those). I also know how to use MATLAB, Maple, Mathematica, etc. As far as operating systems go, I am a seasoned [Linux](http://www.debian.org/) user and lover of FOSS (I know a thing or two about Windows too).  I host this website from my dorm room on a server that I [built myself](http://www.newegg.com/).
+
 Outside of the technical world (in my seemingly non-existent free time), I enjoy sailing, running, hiking, traveling, reading, Team Fortress 2, and of course all the [tom-foolery]({{wr}}static/img/me-camera.jpg) that comes about when living around friends and fellow engineering students. Many tell me that I am passionate, disciplined and good natured about what I do. I love trying new things and can often be found doing things just for the challenge and thrill of learning. I consider myself very fortunate to be where I am.
 {{disable comments}}

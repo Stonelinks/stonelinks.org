@@ -1,8 +1,12 @@
 #Projects
+
 <br>
+
 Here is where I showcase and document the various projects I spend my time on. They span many years, multiple programming languages, and are about everything from robotics to web applications. Click on each icon to learn more about the project.
+
 <br>
 <br>
+
 <div class="row-fluid">
   <div class="span5 projectitem">
       <a href="DaBuzz/index.html">
@@ -76,4 +80,5 @@ Here is where I showcase and document the various projects I spend my time on. T
       <br>
   </div>
 </div>
+
 {{disable comments}}

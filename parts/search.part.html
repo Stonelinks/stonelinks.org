@@ -1,16 +1,24 @@
 <li>
 <script type="text/javascript">
+
 // Google Internal Site Search script- By JavaScriptKit.com (http://www.javascriptkit.com)
 // For this and over 400+ free scripts, visit JavaScript Kit- http://www.javascriptkit.com/
 // This notice must stay intact for use
+
 //Enter domain of site to search.
+
 var domainroot="stonelinks.org";
+
 function Gsitesearch(curobj) {
   curobj.q.value = "site:" + domainroot + " " + curobj.qfront.value;
 };
+
 </script>
+
 <form action="http://www.google.com/search" class="navbar-search pull-right" style="padding-left: 10px;" method="get" onSubmit="Gsitesearch(this)">
+
 <input name="q" type="hidden">
 <input name="qfront" type="text" class="search-query" placeholder="Search">
+
 </form>
 </li>

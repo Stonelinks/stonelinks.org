@@ -1,16 +1,25 @@
 <div class="hero-unit">
+
 #Welcome to Stonelinks!
+
 <center>
+
 ##It is under construction
+
 </center>
+
 Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator, and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
+
 </div>
+
 <script type="text/javascript">
   $(function() {
     $('#myCarousel').carousel()
   });
 </script>
+
 ###Recent things on Stonelinks:
+
 <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">
     <div class="item">
@@ -43,6 +52,8 @@ Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, c
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">&#8249;</a>
   <a class="right carousel-control" href="#myCarousel" data-slide="next">&#8250;</a>
 </div>
+
+
 <div class="row-fluid">
   <div class="span4">
     <h2>Projects</h2>
@@ -60,4 +71,5 @@ Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, c
     <p><a class="btn" href="{{wr}}luke/index.html">About Luke &raquo;</a></p>
   </div>
 </div>
+
 {{disable comments}}

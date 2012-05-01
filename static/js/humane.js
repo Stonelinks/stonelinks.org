@@ -2,14 +2,15 @@
  * Javascript Humane Dates
  * Copyright (c) 2008 Dean Landolt (deanlandolt.com)
  * Re-write by Zach Leatherman (zachleat.com)
- *
+ * 
  * Adopted from the John Resig's pretty.js
  * at http://ejohn.org/blog/javascript-pretty-date
- * and henrah's proposed modification
+ * and henrah's proposed modification 
  * at http://ejohn.org/blog/javascript-pretty-date/#comment-297458
- *
+ * 
  * Licensed under the MIT license.
  */
+
 function humane_date(date_str){
 	var time_formats = [
 		[60, 'Just Now'],
@@ -27,16 +28,19 @@ function humane_date(date_str){
 		[3153600000, 'years', 31536000], // 60*60*24*365*100, 60*60*24*365
 		[4730400000, '1 century'], // 60*60*24*365*100*1.5
 	];
+
 	var time = ('' + date_str).replace(/-/g,"/").replace(/[TZ]/g," "),
 		dt = new Date,
 		seconds = ((dt - new Date(time) + (dt.getTimezoneOffset() * 60000)) / 1000),
 		token = ' ago',
 		i = 0,
 		format;
+
 	if (seconds < 0) {
 		seconds = Math.abs(seconds);
 		token = '';
 	}
+
 	while (format = time_formats[i++]) {
 		if (seconds < format[0]) {
 			if (format.length == 2) {
@@ -46,11 +50,14 @@ function humane_date(date_str){
 			}
 		}
 	}
+
 	// overflow for centuries
 	if(seconds > 4730400000)
 		return Math.round(seconds / 4730400000) + ' centuries' + token;
+
 	return date_str;
 };
+
 if(typeof jQuery != 'undefined') {
 	jQuery.fn.humane_dates = function(){
 		return this.each(function(){
