@@ -3,9 +3,15 @@ import config
 import utils
 import os
 
-def nav(l):
+def nav_html():
+  navlist = []
+  navlist.append(('Luke', '{{wr}}luke/index.html'))
+  navlist.append(('Projects', '{{wr}}projects/index.html'))
+  navlist.append(('Blog', '{{wr}}blog/index.html'))
+  navlist.append(('Site Map', '{{wr}}map.html'))
+  
   s = parts.load('nav.begin')
-  for link, address in l:
+  for link, address in navlist:
     s += '<li><a href="' + address + '">' + link + '</a></li>\n'
   s += parts.load('search')
   s += parts.load('nav.end')
@@ -55,7 +61,6 @@ def comments(p):
 def page(p):
   print "building page", p.human_name
   
-  
   # beginning of head
   s = '<!DOCTYPE html><html>'
   s += '<head>'
@@ -83,12 +88,7 @@ def page(p):
   s += '<div id="wrapper">'
 
   # top bar and navigation
-  navlist = []
-  navlist.append(('Luke', '{{wr}}luke'))
-  navlist.append(('Projects', '{{wr}}projects'))
-  navlist.append(('Blog', '{{wr}}blog'))
-  navlist.append(('Site Map', '{{wr}}map'))
-  s += utils.minify(nav(navlist))
+  s += utils.minify(nav_html())
   
   # start bg wrapper
   s += '<div id="bg-wrapper">'

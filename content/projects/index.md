@@ -2,11 +2,31 @@
 
 <br>
 
-Here is where I showcase and document the various projects I spend my time on. They span many years, multiple programming languages, and are about everything from robotics to web applications. Click on each icon to learn more about the project.
+Here is where I showcase and document the various projects and work that I spend my time on. They span many years, many technical disciplines and are about everything from robotics to outer space to web applications. Click on each icon to learn more about the project.
 
 <br>
 <br>
 
+<div class="row-fluid">
+  <div class="span5 projectitem">
+      <a href="DaBuzz/index.html">
+        <center><img class="thumbnail" width="70%" src="{{wr}}static/img/stupid.png"></center>
+      </a>
+      <br>
+      <h2>Anybots placeholder</h2>
+      A more informed stock market.
+      <br>
+  </div>
+  <div class="span5 projectitem">
+      <a href="stoolbotics/index.html">
+        <center><img class="thumbnail" width="80%" src="{{wr}}static/img/stoolbotics.png"></center>
+      </a>
+      <br>
+      <h2>Stoolbotics</h2>
+        A beginner friendly, minimalistic and open source robot simulator.
+      <br>
+  </div>
+</div>
 <div class="row-fluid">
   <div class="span5 projectitem">
       <a href="DaBuzz/index.html">
@@ -18,12 +38,12 @@ Here is where I showcase and document the various projects I spend my time on. T
       <br>
   </div>
   <div class="span5 projectitem">
-      <a href="stoolbotics/index.html">
-        <center><img class="thumbnail" width="80%" src="{{wr}}static/img/stoolbotics.png"></center>
+      <a href="harvard.html">
+        <center><img class="thumbnail" width="80%" src="{{wr}}static/img/chamber.png"></center>
       </a>
       <br>
-      <h2>Stoolbotics</h2>
-        A beginner friendly, minimalistic and open source robot simulator.
+      <h2>Automated Multilayer Fabrication</h2>
+        Work at the Harvard-Smithsonian Center for Astrophysics on prototyping X-ray optics.
       <br>
   </div>
 </div>
