@@ -71,18 +71,6 @@ The code that runs Stonelinks is open source! See the code on github!
 
 <br>
 
-<script type="text/javascript">
-$(window).load(function () {
-  var c = new libgithub.Badge('Stonelinks', 'stonelinks.org');
-  c.numCommitsIs(5);
-  c.targetIs('#commits');
-});
-</script>
-
-###Latest Commits to Stonelinks:
-<div id="commits"></div>
-
-
 ##How to use
 The general process of how to use the Stonelinks web framework is pretty simple:
 
