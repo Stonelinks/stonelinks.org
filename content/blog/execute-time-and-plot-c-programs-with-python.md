@@ -2,7 +2,7 @@
 02/03/2011
 
 <center>
-<img src="http://stonelinks.org/wp-content/uploads/2011/02/Fig.png" class="thumbnail" width="80%">
+<img src="{{wr}}static/img/misc/Fig.png" class="thumbnail" width="80%">
 </center>
 
 Hate excel? Have python take all the pain away from you! This should appeal to everyone out there who needs a quick way to analyze the runtime time of a bunch of commands to a program given an arbitrary list of arguments. Hating excel/openoffice/spreadsheets in general is optional.
@@ -87,5 +87,5 @@ if __name__ == "__main__":
 
 </pre>
 
-I've also attached the whole lab [here]({{wr}}wp-content/uploads/2011/02/lab1.zip) in case the python does not make sense by itself. Hope someone finds this useful!
+I've also attached the whole lab [here]({{wr}}{{wr}}static/img/misc/lab1.zip) in case the python does not make sense by itself. Hope someone finds this useful!
 

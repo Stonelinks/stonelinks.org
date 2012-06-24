@@ -3,7 +3,7 @@
 
 
 <center>
-<img src="http://stonelinks.org/wp-content/uploads/2011/01/downsize-300x225.jpg" class="thumbnail" width="50%">
+<img src="{{wr}}static/img/old/downsize-300x225.jpg" class="thumbnail" width="50%">
 <br>
 These two suckers now live on my desk and throw off a ton of heat.
 </center>

@@ -2,7 +2,7 @@
 12/22/2010
 
 <center>
-<img src="http://stonelinks.org/wp-content/uploads/2011/01/downsize1-225x300.jpg" class="thumbnail" width="50%">
+<img src="{{wr}}static/img/old/downsize1-225x300.jpg" class="thumbnail" width="50%">
 </center>
 
 Home for the break! My brother asked me for help making a small electromagnet to bring into Boy Scouts for electricity merit badge. I of course jumped at the opportunity, and asked what kind of power source they are going to be using to drive said magnet. He tells me they will be using a single D battery. Thinking this is kind of small, I spent a few hours making the biggest electromagnet from things around the house I could find.
