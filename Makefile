@@ -21,12 +21,3 @@ deploy:
 	@echo "\n\n"
 
 site: compile deploy
-
-THINGS = $(shell find content/* | grep ".html" | cut -d "." -f1)
-
-convert-html:
-	for thing in $(THINGS); do \
-	  mv $$thing.md $$thing.html ;\
-	  pandoc --no-wrap -f html -t markdown -o $$thing.md $$thing.html ; \
-	  rm $$thing.html ; \
-	done;
