@@ -61,7 +61,7 @@ def blog_dict(p):
     wordlist = wordlist.replace('#','##').split(' ')
     
     blog_summary += c.date + '\n\n'
-    blog_summary += ' '.join(wordlist[:100])
+    blog_summary += ' '.join(wordlist[:config.words_in_blog_stub])
     blog_summary += '\n'*2
     blog_summary += '[Read more...](' + c.address() +')\n'
     blog_summary += '<br>'*3 + '<hr>\n'

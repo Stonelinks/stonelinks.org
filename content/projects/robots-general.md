@@ -1,9 +1,8 @@
 #Robot List
 
-Robotics has been a long standing passion of mine. This page is to showcase robots I have designed, programmed, built or had anything to do with over the years. Other robots such as FIRST or Battlebots have their own pages that you can get at on the sidebar.
+Robotics has been a long standing passion of mine. This page is to showcase robots I have designed, programmed, built or had anything to do with over the years. Other robots such as FIRST or Battlebots can be seen elsewhere on the site (like the [projects]({{wr}}projects/index.html) page).
 
 * * * * *
-
 
 ##IED Border Patrol Robot - Sophomore year (2010)
 
@@ -38,7 +37,7 @@ The Litec blimp was the final project for an embedded control class I took at th
 </center>
 <br>
 
-Unfortunately I went through the trouble of designing most of this robot on my own for a now dissolved group of students at RPI interested in starting a Battlebot team. It never made it into the real world but still remains a viable design as far as I am concerned. A lot written about it [here]({{wr}}projects/battlebot/).
+Unfortunately I went through the trouble of designing most of this robot on my own for a now dissolved group of students at RPI interested in starting a Battlebot team. It never made it into the real world but still remains a viable design as far as I am concerned. A lot written about it [here]({{wr}}projects/battlebot.html).
 
 * * * * *
 
@@ -48,8 +47,6 @@ Unfortunately I went through the trouble of designing most of this robot on my o
 <iframe width="80%" height="500" src="http://www.youtube.com/embed/RRwMJ8GYT7Y" frameborder="0" allowfullscreen></iframe>
 </center>
 <br>
-
-
 
 This robot at first wasn't even really a robot, just some servos, a pan tilt module and an Arduino. However, just like Stonelinks, it has had many incarnations over the years and exists primary as an educational tool for me to learn more and mess around with. Over the years it has been controlled from windows, linux, Labview, locally, from the internet, to no PC at all. It used to be attached to a netbook and some wheels, and I used to drive it around the dorm and talk to people using text to speech. In its current incarnation, it has functioned mostly as a stationary observer. When I get some time, I have plans to start using it to teach myself more about computer vision. I also don't really have a good picture for it as it is always changing, so here is a video of it detecting faces.
 

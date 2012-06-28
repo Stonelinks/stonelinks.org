@@ -8,7 +8,9 @@ Good news and bad news! The good news is that in the last month or so at RPI, my
 <center>
 <img src="{{wr}}static/img/misc/drone.jpg" class="thumbnail" width="80%">
 
-Early mock up of the drone with the wings removed. The camera has since been mounted to a custom pan/tilt module under the engine.
+Early mock up of the drone with the wings removed.
+
+The camera has since been mounted to a custom pan/tilt module under the engine.
 
 </center>
 

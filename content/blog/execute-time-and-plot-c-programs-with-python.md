@@ -87,5 +87,5 @@ if __name__ == "__main__":
 
 </pre>
 
-I've also attached the whole lab [here]({{wr}}{{wr}}static/img/misc/lab1.zip) in case the python does not make sense by itself. Hope someone finds this useful!
+I've also attached the whole lab [here]({{wr}}static/misc/lab1.zip) in case the python does not make sense by itself. Hope someone finds this useful!
 

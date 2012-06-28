@@ -16,3 +16,4 @@ use_less = False
 
 gallery_root = "static/img/galleries/"
 blog_entries_per_page = 8
+words_in_blog_stub = 150
