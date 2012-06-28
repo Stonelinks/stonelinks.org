@@ -2,13 +2,7 @@
 
 #Welcome to Stonelinks!
 
-<center>
-
-##It is under construction
-
-</center>
-
-Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator, and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
+Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
 
 </div>
 

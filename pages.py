@@ -5,7 +5,7 @@ import os
 
 def nav_html():
   navlist = []
-  navlist.append(('Luke', '{{wr}}luke/index.html'))
+  navlist.append(('About Me', '{{wr}}luke/index.html'))
   navlist.append(('Projects', '{{wr}}projects/index.html'))
   navlist.append(('Blog', '{{wr}}blog/index.html'))
   navlist.append(('Site Map', '{{wr}}map.html'))
