@@ -15,4 +15,3 @@ Outside of robotics and programming, I enjoy sailing, running, cycling, a bit of
 
 {{disable comments}}
 
-
