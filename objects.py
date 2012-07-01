@@ -73,6 +73,7 @@ class page(object):
     s = s.replace('{{social_large}}', pages.social_large())
     
     s = s.replace('{{disable comments}}', '')
+    s = s.replace('{{disable sidebar}}', '')
     
     s = s.replace('{{ctime}}', time.ctime(time.time()))
     

@@ -55,8 +55,22 @@ def comments(p):
     comment_html = comment_html.replace('{{disqus_identifier}}', p.address())
     return comment_html
   else:
-    print "page", p.human_name, "has comments disabled"
-  return ''
+    return ''
+
+def sidebar(p):
+  if '{{disable sidebar}}' in p.content:
+    p.omit_sidebar = True
+  
+  s = ''
+  if not p.omit_sidebar:
+    s += '<div class="span3" id="sidebar">'
+    s += '<div class="well sidebar-nav">'
+    s += p.sidebar
+    s += '</div>'
+    s += '</div>'
+    
+  return s
+
 
 def page(p):
   print "building page", p.human_name
@@ -93,12 +107,8 @@ def page(p):
   # start bg wrapper
   s += '<div id="bg-wrapper">'
 
-  if not p.omit_sidebar:
-    s += '<div class="span3" id="sidebar">'
-    s += '<div class="well sidebar-nav">'
-    s += p.sidebar
-    s += '</div>'
-    s += '</div>'
+  #sidebar
+  s += sidebar(p)
   
   # start container
   s += '<div class="container" style="width: 800px;">'

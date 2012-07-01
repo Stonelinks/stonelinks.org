@@ -122,3 +122,4 @@ Here is where I showcase and document the various projects and work that I spend
 </div>
 
 {{disable comments}}
+{{disable sidebar}}

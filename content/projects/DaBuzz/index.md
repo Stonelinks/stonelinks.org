@@ -4,7 +4,6 @@
 
 <center>
 
-
 <img class="thumbnail" src="{{wr}}static/img/stupid.png">
 
 </center>
