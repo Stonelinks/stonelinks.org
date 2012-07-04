@@ -21,7 +21,7 @@ def social_small():
   s = ''
   for k, v in config.social_networks.iteritems():
     s += '<a href ="' + v + '" >'
-    s += '<img style="position: relative; top: 4px;" src="{{wr}}static/img/icons/' + k + '.png">'
+    s += '<img style="position: relative;" src="{{wr}}static/img/icons/' + k + '.png">'
     s += '</a>'
     s += '&nbsp;'*2
   return s
@@ -117,7 +117,6 @@ def page(p):
   s += '<div id="page-body">'
   s += p.breadcrumb()
   s += utils.md(p.content)
-  s += '<hr>'
   s += utils.minify(comments(p))
   
   # end content

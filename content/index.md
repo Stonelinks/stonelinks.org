@@ -61,7 +61,6 @@ Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, c
   <a class="right carousel-control" href="#myCarousel" data-slide="next" style="font-size: 30px;">&rarr;</a>
 </div>
 
-
 <div class="row-fluid">
   <div class="span4">
     <a href="{{wr}}projects/index.html"><h2>Projects</h2></a>
