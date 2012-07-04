@@ -42,7 +42,7 @@ class page(object):
       s.insert(0, '<a href="{{wr}}">Home</a>')
       
       s = '<small>' + ' &rarr; '.join(s) + '</small><hr>'
-      s = s.replace(' &rarr; <a href="{{wr}}/index.html"></a>', '')
+      s = s.replace(' &rarr; <a href="{{wr}}index.html"></a>', '')
       return s
 
   def address(self):
