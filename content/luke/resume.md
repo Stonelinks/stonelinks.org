@@ -176,7 +176,7 @@
         <h3>Web Technologies</h3>
       </div>
       <div class="span8">
-        Currently host own website on self-built framework with Amazon's Elastic..blah cloud. Familiar with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and configuring a LAMP stack. Proficient with relational and non-relational databases.
+        Currently host own website on self-built framework with Amazon's Elastic Computing Cloud. Familiar with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and configuring a LAMP stack. Proficient with relational and non-relational databases.
       </div>
     </div>
   </li>
@@ -201,7 +201,7 @@
     </div>
     <ul>
       <li>
-        Led a capstone team of engineering students to design a simulator for an intra-wing robot for operation inside an aircraft.
+        Led a capstone team of engineering students to design a simulator for an intra-wing robot to operate inside an aircraft.
       </li>
       <li>
         Worked closely with Boeing to fulfill requirements for assembly and maintenance roles of operation.
