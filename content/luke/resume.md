@@ -93,6 +93,26 @@
 <ul style="list-style-type: none;">
   <li>
     <div class="row-fluid">
+      <div class="span7">
+        <h3><a href="http://stonelinks.org/projects/harvard.html" target="_blank">Harvard-Smithsonian Center for Astrophysics &nbsp;&nbsp; <img style="width: 20px; height: 20px;" src="http://stonelinks.org/static/img/resume/link.png"></a></h3>
+        <em>Automations Programmer / Engineer</em>
+      </div>
+      <div class="span2" style="text-align: right; font-size: 16px; height: 27px;">
+        <em>Cambridge, MA</em>
+      </div>
+      <div class="span3" style="text-align: right; height: 27px;">
+        <b>Summer 2009 - Present</b>
+      </div>
+    </div>
+    <ul style="list-style-type: none;">
+      <li>
+        Designed, constructed and programmed an experimental X-ray optic production facility. Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios. Designed sample manipulation hardware and a high strength production chamber mount using CAD. Saved time and lowered costs by developing a more efficient shutter controller now used on all production chambers in the lab. Worked closely with physicists, component vendors, machinists and other key stakeholders to complete project on time. Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter.
+      </li>
+    </ul>
+  </li>
+  <br>
+  <li>
+    <div class="row-fluid">
       <div class="span4">
         <h3><a href="http://stonelinks.org/projects/anybots.html" target="_blank">Anybots, Inc. &nbsp;&nbsp; <img style="width: 20px; height: 20px;" src="http://stonelinks.org/static/img/resume/link.png"></a></h3>
         <em>Robotics Intern</em>
@@ -109,76 +129,6 @@
         Solely designed and authored Anystats, a tool to statistically track, analyze and prioritize events from thousands of logs from a fleet of telepresence robots. Saved time by cross referencing event data with customer information and known bugs to dispatch engineering and support teams effectively. Also implemented UI features for touchscreen on forehead of robot, namely a dashboard to display internal robot device status and connectivity, as well as a call screen to allow users to answer or deny calls made to their telepresence robot.
       </li>
     </ul>
-  </li>
-  <br>
-  <li>
-    <div class="row-fluid">
-      <div class="span7">
-        <h3><a href="http://stonelinks.org/projects/harvard.html" target="_blank">Harvard-Smithsonian Center for Astrophysics &nbsp;&nbsp; <img style="width: 20px; height: 20px;" src="http://stonelinks.org/static/img/resume/link.png"></a></h3>
-        <em>Physical Science Technician</em>
-      </div>
-      <div class="span2" style="text-align: right; font-size: 16px; height: 27px;">
-        <em>Cambridge, MA</em>
-      </div>
-      <div class="span3" style="text-align: right; height: 27px;">
-        <b>Summer 2009 - Present</b>
-      </div>
-    </div>
-    <ul style="list-style-type: none;">
-      <li>
-        Designed, constructed and programmed an experimental X-ray optic production facility. Wrote intuitive software to simplify fabrication of X-ray optics in multiple production scenarios. Designed sample manipulation hardware and a high strength production chamber mount using CAD. Saved time and lowered costs by developing a more efficient shutter controller now used on all production chambers in the lab. Worked closely with physicists, component vendors, machinists and other key stakeholders to complete project on time. Supervised a high school student to characterize potential optic substrates with a high precision 3D profilemeter.
-      </li>
-    </ul>
-  </li>
-</ul>
-<br>
-
-##Key Technical Skills
-
-<br>
-<ul style="list-style-type: none;">
-  <li>
-    <div class="row-fluid">
-      <div class="span3">
-        <h3>Software Development</h3>
-      </div>
-      <div class="span8">
-        Python, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned GNU/Linux user. Familiar industry standard development workflows, version control systems and development patterns. 
-      </div>
-    </div>
-  </li>
-  <br>
-  <li>
-    <div class="row-fluid">
-      <div class="span3">
-        <h3>Computer Aided Design</h3>
-      </div>
-      <div class="span8">
-        Advanced experience with Solidworks. Virtually designed and simulated FIRST robots, a Battlebot, as well as vacuum chambers at Harvard-Smithsonian Center for Astrophysics.
-      </div>
-    </div>
-  </li>
-  <br>
-  <li>
-    <div class="row-fluid">
-      <div class="span3">
-        <h3>Embedded Control</h3>
-      </div>
-      <div class="span8">
-        Authored control software for autonomous and semi-autonomous boats, blimps, cars and robots. Programmed for multiple microcontrollers (Intel 8051, ARM). Regularly build own servers and computers.
-      </div>
-    </div>
-  </li>
-  <br>
-  <li>
-    <div class="row-fluid">
-      <div class="span3">
-        <h3>Web Technologies</h3>
-      </div>
-      <div class="span8">
-        Currently host own website on self-built framework with Amazon's Elastic Computing Cloud. Familiar with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and configuring a LAMP stack. Proficient with relational and non-relational databases.
-      </div>
-    </div>
   </li>
 </ul>
 <br>
@@ -242,6 +192,56 @@
         Gave presentations and poster sessions to the RPI Community about DaBuzz and the Rensselaer Center for Open Source Software.
       </li>
     </ul>
+  </li>
+</ul>
+<br>
+
+##Key Technical Skills
+
+<br>
+<ul style="list-style-type: none;">
+  <li>
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Software Development</h3>
+      </div>
+      <div class="span8">
+        Python, C++, C, Javascript, Java, PHP, MATLAB, LabVIEW. Seasoned GNU/Linux user. Familiar industry standard development workflows, version control systems and development patterns. 
+      </div>
+    </div>
+  </li>
+  <br>
+  <li>
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Computer Aided Design</h3>
+      </div>
+      <div class="span8">
+        Advanced experience with Solidworks. Virtually designed and simulated FIRST robots, a Battlebot, as well as vacuum chambers at Harvard-Smithsonian Center for Astrophysics.
+      </div>
+    </div>
+  </li>
+  <br>
+  <li>
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Embedded Control</h3>
+      </div>
+      <div class="span8">
+        Authored control software for autonomous and semi-autonomous boats, blimps, cars and robots. Programmed for multiple microcontrollers (Intel 8051, ARM). Regularly build own servers and computers.
+      </div>
+    </div>
+  </li>
+  <br>
+  <li>
+    <div class="row-fluid">
+      <div class="span3">
+        <h3>Web Technologies</h3>
+      </div>
+      <div class="span8">
+        Currently host own website on self-built framework with Amazon's Elastic Computing Cloud. Familiar with CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and configuring a LAMP stack. Proficient with relational and non-relational databases.
+      </div>
+    </div>
   </li>
 </ul>
 <br>
