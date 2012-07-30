@@ -41,12 +41,9 @@ def social_large():
   return s
 
 def comments(p):
-  if '{{disable comments}}' in p.content:
-    p.enable_comments = False
-  
   if p.is_auto_index or p.is_dir:
-    p.enable_comments = False
-  
+      p.enable_comments = False
+
   if p.enable_comments:
     comment_html = '<br>'
     comment_html += parts.load('comments')
@@ -58,9 +55,6 @@ def comments(p):
     return ''
 
 def sidebar(p):
-  if '{{disable sidebar}}' in p.content:
-    p.omit_sidebar = True
-  
   s = ''
   if not p.omit_sidebar:
     s += '<div class="span3" id="sidebar">'
@@ -68,7 +62,6 @@ def sidebar(p):
     s += p.sidebar
     s += '</div>'
     s += '</div>'
-    
   return s
 
 

@@ -26,6 +26,8 @@ class page(object):
     
     self.enable_comments = True
     
+    self.hidden = False
+    
   def breadcrumb(self):
     if self.level == 1:
       return ''
@@ -56,6 +58,17 @@ class page(object):
     self.page_filter()
     return self.page_html
 
+  def compute_short_tags(self):
+    if self.content is None:
+      return
+    else:
+      if '{{disable sidebar}}' in self.content:
+        self.omit_sidebar = True
+      if '{{disable comments}}' in self.content:
+        self.enable_comments = False
+      if '{{hidden}}' in self.content:
+        self.hidden = True
+
   def page_filter(self):
     s = self.page_html
 
@@ -74,6 +87,8 @@ class page(object):
     
     s = s.replace('{{disable comments}}', '')
     s = s.replace('{{disable sidebar}}', '')
+    
+    s = s.replace('{{hidden}}', '')
     
     s = s.replace('{{ctime}}', time.ctime(time.time()))
     
@@ -112,7 +127,6 @@ class site(object):
     
   def page_obj(self, d, level, is_dir=False):
     
-    # oh god...
     path = '/'.join(d.split('/')[1:-1])
     filename = d.split('/')[-1].split('.')[0]
     
@@ -138,6 +152,7 @@ class site(object):
       p.human_name = title
       p.name = filename
       p.content = utils.fileread(d)
+    p.compute_short_tags()
     return p
 
   def build_tree(self, parent, d='.', level=0):
@@ -178,22 +193,32 @@ class site(object):
     p.enable_comments = False
     
     s = '#Site Map\n\n'
-    map_func = lambda p: '    '*p.level + \
-               '- [' + p.human_name + '](' + p.address() +')\n'
-    s += self.traverse(map_func)
+    
+    def _gen_map(p):
+      if not p.hidden:
+        t = '    '*p.level
+        t += '- [' + p.human_name + '](' + p.address() +')\n'
+      else:
+        t = ''
+      return t
+    
+    s += self.traverse(_gen_map)
 
     p.content = s
     self.root.children.append(p)
 
   def gen_sidebars(self):
     def _gen_sidebar(p):
-      if p.name == 'blog':
+      if p.name == 'blog' or p.hidden:
         return ''
       else:
         s = '<h3><a href="%s">%s</a></h3>' % (p.address(), p.human_name)
         s += '<ul class="nav nav-list">'
         for c in p.children:
-          s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
+          if c.hidden:
+            pass
+          else:
+            s += '<li><a href="%s">%s</a></li>' % (c.address(), c.human_name)
         
         for c in p.children:
           c.sidebar = s.replace('<li><a href="%s">%s</a></li>' % (c.address(), c.human_name), \
@@ -207,10 +232,10 @@ class site(object):
 
   def gen_indexes(self):
     def _gen_index(p):
-      if p.name in ['index', 'blog'] or not p.is_dir:
+      if p.name in ['index', 'blog'] or not p.is_dir or p.hidden:
         return ''
       for c in p.children:
-        if c.name == 'index':
+        if c.name == 'index' or c.hidden:
           return ''
       print "generating index for ", p.human_name
       p.omit_sidebar = True
