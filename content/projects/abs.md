@@ -13,7 +13,7 @@ The The Awesome Backup System (ABS) is a cross platform file backup solution. It
 
 ##Demo
 ###You can see and use ABS right now!
-###Check out [stonelinks.org/ABS/](stonelinks.org/ABS/)
+###Check out [stonelinks.org/ABS/](http://stonelinks.org/ABS/)
 (Please don't fill my server up with crap!)
 
 <br>
