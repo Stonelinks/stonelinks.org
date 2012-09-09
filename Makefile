@@ -2,6 +2,7 @@
 
 clean:
 	@rm -rf build/*
+	@rm -rf build/.* &
 
 compile: clean
 	@rsync -avz static/ build/static/
@@ -13,6 +14,7 @@ deploy:
 	#@chmod 777 -R /home/ld/Dropbox/Public/sl/ &
 	#@rsync -axhvve ssh build/ root@ec2-23-22-179-77.compute-1.amazonaws.com:/var/www
 	@rsync -axhvve ssh build/ root@stonelinks.org:/var/www
+	@ssh root@stonelinks.org chmod 755 -R /var/www
 
 	@echo "\n"
 	@echo "==============================="

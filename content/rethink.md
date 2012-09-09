@@ -1,7 +1,6 @@
 <br>
 <br>
 
-
 #Lucas Doyle
 ###[stonelinks.org/luke](http://stonelinks.org/luke/)
 

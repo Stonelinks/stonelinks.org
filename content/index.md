@@ -1,8 +1,9 @@
 <div class="hero-unit">
 
-#Welcome to Stonelinks!
 
-Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
+<h1>Welcome to Stonelinks!</h1>
+
+<p>Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!</p>
 
 </div>
 
