@@ -2,6 +2,7 @@
 
 clean:
 	@rm -rf build/*
+	@rm -rf build/.* &
 
 compile: clean
 	@rsync -avz static/ build/static/
