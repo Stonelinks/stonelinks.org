@@ -55,7 +55,7 @@ class page(object):
   
   def make_page(self):
     self.page_html = pages.page(self)
-    self.page_filter()
+    self.short_tags()
     return self.page_html
 
   def compute_short_tags(self):
@@ -69,7 +69,7 @@ class page(object):
       if '{{hidden}}' in self.content:
         self.hidden = True
 
-  def page_filter(self):
+  def short_tags(self):
     s = self.page_html
 
     s = s.replace('{{sn}}', config.site_name) # site name
@@ -103,7 +103,7 @@ class page(object):
 class site(object):
   def __init__(self):
     self.source = 'content'
-    self.to = 'build'
+    self.destination = 'build'
 
     self.root = None
     
@@ -114,16 +114,20 @@ class site(object):
     self.root.name = ''
     
   def traverse(self, t_func):
-    def _traverse(p, lvl, t_func):
+    def _traverse(p, t_func):
       s = ''
       if not p.is_dir:
         return t_func(p)
       else:
-        s += t_func(p)
+        r = t_func(p)
+        if r is not None:
+          s += r
         for c in p.children:
-          s += _traverse(c, lvl + 1, t_func)
+          r = _traverse(c, t_func)
+          if r is not None:
+            s += r
         return s
-    return _traverse(self.root, 0, t_func)
+    return _traverse(self.root, t_func)
     
   def page_obj(self, d, level, is_dir=False):
     
@@ -131,7 +135,7 @@ class site(object):
     filename = d.split('/')[-1].split('.')[0]
     
     oldpath = os.path.join(self.source, path)
-    newpath = os.path.join(self.to, path)
+    newpath = os.path.join(self.destination, path)
     p = page()
     p.level = level
     p.path = path
@@ -188,7 +192,7 @@ class site(object):
     p.name = 'map'
     p.level = 1
     p.path = ''
-    p.destination = self.to
+    p.destination = self.destination
     p.omit_sidebar = True
     p.enable_comments = False
     
@@ -210,7 +214,7 @@ class site(object):
   def gen_sidebars(self):
     def _gen_sidebar(p):
       if p.name == 'blog' or p.hidden:
-        return ''
+        return
       else:
         s = '<h3><a href="%s">%s</a></h3>' % (p.address(), p.human_name)
         s += '<ul class="nav nav-list">'
@@ -227,34 +231,32 @@ class site(object):
             c.sidebar += '<li class="divider"></li>'
             c.sidebar += '<li><a onclick="goBack()"><b>&larr; Go Back</b></a></li>'
           c.sidebar += '</ul>'
-        return ''
     self.traverse(_gen_sidebar)
 
   def gen_indexes(self):
     def _gen_index(p):
       if p.name in ['index', 'blog'] or not p.is_dir or p.hidden:
-        return ''
-      for c in p.children:
-        if c.name == 'index' or c.hidden:
-          return ''
-      print "generating index for ", p.human_name
-      p.omit_sidebar = True
-      s = '#' + p.human_name + '\n\n'
-      for c in p.children:
-        s += '- ##[%s](%s)\n' % (c.human_name, c.address())
-      s += '\n\n<hr><a href="../"><h2>&larr; Back up</h2></a>'
-      p.content = s
-      p.is_auto_index = True
-      p.destination = os.path.join(p.destination, p.name)
-      return ''
+        return
+      else:
+        for c in p.children:
+          if c.name == 'index' or c.hidden:
+            return
+        print "generating index for ", p.human_name
+        p.omit_sidebar = True
+        s = '#' + p.human_name + '\n\n'
+        for c in p.children:
+          s += '- ##[%s](%s)\n' % (c.human_name, c.address())
+        s += '\n\n<hr><a href="../"><h2>&larr; Back up</h2></a>'
+        p.content = s
+        p.is_auto_index = True
+        p.destination = os.path.join(p.destination, p.name)
     self.traverse(_gen_index)
 
   def gen_blog(self):
-    def blog_index(p):
+    def _blog(p):
       if p.name == 'blog':
         blog.make_blog(p)
-      return ''
-    self.traverse(blog_index)
+    self.traverse(_blog)
 
   def gen_special_pages(self):
     self.gen_indexes()
@@ -267,7 +269,7 @@ class site(object):
       if p.content is None:
         pass
       else:
-        basepath = os.path.join(self.to, p.path)
+        basepath = os.path.join(self.destination, p.path)
         if not os.path.isdir(basepath):
           os.makedirs(basepath)
         if p.is_auto_index:
@@ -276,5 +278,4 @@ class site(object):
         else:
           dst = os.path.join(p.destination, p.name + '.html')
         utils.filewrite(dst, p.make_page())
-      return ''
     self.traverse(_gen_page)

@@ -1,8 +1,8 @@
 <div class="hero-unit">
 
-#Welcome to Stonelinks!
+<h1>Welcome to Stonelinks!</h1>
 
-Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, communicator and student. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
+Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer and web developer. I'm passionate about my work and love learning new things. This website is where I put my projects, code, writing, documentation and more. Enjoy!
 
 </div>
 
@@ -11,7 +11,6 @@ Hello! I'm Lucas Doyle. I'm a programmer, roboticist, engineer, web developer, c
     $('#myCarousel').carousel()
   });
 </script>
-
 
 <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">

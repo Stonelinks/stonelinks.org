@@ -64,7 +64,6 @@ def sidebar(p):
     s += '</div>'
   return s
 
-
 def page(p):
   print "building page", p.human_name
   
@@ -88,7 +87,7 @@ def page(p):
   # end head, start page
   s += '</head><body>'
   
-  # minify
+  # minify everything we have so far
   s = utils.minify(s)
   
   # main wrapper
@@ -100,7 +99,7 @@ def page(p):
   # start bg wrapper
   s += '<div id="bg-wrapper">'
 
-  #sidebar
+  # sidebar
   s += sidebar(p)
   
   # start container
@@ -110,6 +109,7 @@ def page(p):
   s += '<div id="page-body">'
   s += p.breadcrumb()
   s += utils.md(p.content)
+  
   s += utils.minify(comments(p))
   
   # end content

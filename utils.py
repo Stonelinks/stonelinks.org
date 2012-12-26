@@ -33,15 +33,9 @@ def clamp(a, b, c):
     return c
 
 def minify(t):
-  comment_re0 = re.compile(' \/\/.*\\n')
-  comment_re1 = re.compile('\\n\/\/.*\\n')
-  comment_re2 = re.compile('[^:]\/\/.*\\n')
-  comment_re3 = re.compile('\/\*.*\*\/')
-  
-  re_list = [comment_re0, comment_re1, comment_re2, comment_re3]
-  for _re in re_list:
-    for comment in _re.findall(t):
-      t = t.replace(comment, '')
+  js_comment_re = re.compile(' \/\/.*\\n|\\n\/\/.*\\n|[^:]\/\/.*\\n|\/\*.*\*\/')
+  for comment in js_comment_re.findall(t):
+    t = t.replace(comment, '')
 
   t = t.replace('\n', ' ')
   while '  ' in t:
