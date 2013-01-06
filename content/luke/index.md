@@ -6,7 +6,7 @@
 <br>
 <br>
 
-I'm Lucas Doyle, an engineer, programmer and roboticist from Gilford, NH. I'm a recent computer and systems engineering graduate from the class of 2012 at the Rensselaer Polytechnic Institute, and I'm currently looking for my dream job in Boston, MA!
+Hi! I'm Lucas Doyle. I'm an engineer, programmer and roboticist from Gilford, NH. I'm a recent computer and systems engineering graduate from Rensselaer Polytechnic Institute and I currently work in Tokyo, Japan at an awesome robotics startup called [MUJIN](http://mujin.co.jp)!
 
 <br>
 
@@ -39,25 +39,13 @@ Rensselaer Polytechnic Institute, B.S., Computer and Systems Engineering
 Outside of robotics and programming, I enjoy sailing, running, cycling, a bit of video games (Minecraft and Team Fortress 2) and of course all the [tom-foolery]({{wr}}static/img/me-camera.jpg) that comes about when living with friends and fellow engineers. I've always had a fascination for aviation, aeronautics, economics and (predictably) science fiction. I'm also a published poet. I take pride in the high standards I hold myself, and don't like to consider myself an expert on any single subject as there is always more to learn. I also have an inquisitive mind that doesn't easily take things at face value, and I'm constantly inventing, experimenting and learning. I consider myself very fortunate to be where I am, and sincerely thank everyone who has helped me get here.
 
 <br>
-<br>
 
-<div class="row-fluid">
-  <div class="span4">
-    <p><a class="btn btn-primary" href="resume.html">View My Resume (html) &raquo;</a></p>
-  </div>
-  <div class="span4">
-    <p><a class="btn btn-primary" href="{{wr}}static/lucas_doyle_resume.txt">View My Resume (text) &raquo;</a></p>
-  </div>
-</div>
-<br>
-<div class="row-fluid">
-  <div class="span4">
-    <p><a class="btn btn-primary" href="{{wr}}static/lucas_doyle_resume.pdf">Download My Resume (pdf) &raquo;</a></p>
-  </div>
-  <div class="span4">
-    <p><a class="btn btn-primary" href="contact.html">Contact Information &raquo;</a></p>
-  </div>
-</div>
+###Resume
+
+- <h3><a href="resume.html">My resume</a></h3>
+- <h3><a href="{{wr}}static/resume/lucas_doyle_resume.txt">My resume (text only)</a></h3>
+- <h3><a href="{{wr}}static/resume/lucas_doyle_resume.pdf">Download my resume (pdf)</a></h3>
+- <h3><a href="contact.html">How to contact me</a></h3>
 
 {{disable comments}}
 

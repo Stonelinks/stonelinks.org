@@ -16,6 +16,6 @@ deploy:
 	@echo "==============================="
 	@echo "=   Deployed to stonelinks!   ="
 	@echo "==============================="
-	@echo "\n\n"
+	@echo "\n"
 
 site: compile deploy

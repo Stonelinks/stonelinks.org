@@ -1,0 +1,131 @@
+Lucas P. Doyle
+lucas@lucasdoyle.com
+603-998-3565
+28 Margaret Way
+Gilford, NH 03249
+http://stonelinks.org/luke
+
+Education
+==============================================
+
+Rensselaer Polytechnic Institute
+Troy, NY, Fall 2008 - Spring 2012
+B.S., Computer and Systems Engineering, GPA of 3.10
+
+Gilford High School
+Gilford, NH, Fall 2004 - Spring 2008
+GPA of 4.00
+
+Professional
+==============================================
+
+MUJIN Inc.
+Software engineer
+Bunkyo-ku, Tokyo, Japan, Fall 2012 - Present
+Designed and implemented the web interface to MUJIN's revolutionary   
+industrial robotics motion planning software. Wrote the javascript    
+clent library that uses MUJIN's RESTful API to power its products. 
+
+Harvard-Smithsonian Center for Astrophysics
+Automations Programmer / Engineer
+Cambridge, MA, Summer 2009 - Present
+Designed, constructed and programmed an experimental X-ray optic      
+production facility. Wrote intuitive software to simplify             
+fabrication of X-ray optics in multiple production scenarios.         
+Designed sample manipulation hardware and a high strength production  
+chamber mount using CAD. Saved time and lowered costs by developing   
+a more efficient shutter controller now used on all production        
+chambers in the lab. Worked closely with physicists, component        
+vendors, machinists and other key stakeholders to complete project    
+on time. Supervised a high school student to characterize potential   
+optic substrates with a high precision 3D profilemeter. 
+
+Anybots Inc.
+Robotics Intern
+Mountain View, CA, Summer 2011
+Solely designed and authored Anystats, a tool to statistically        
+track, analyze and prioritize events from thousands of logs from a    
+fleet of telepresence robots. Saved time by cross referencing event   
+data with customer information and known bugs to dispatch             
+engineering and support teams effectively. Also implemented UI        
+features for touchscreen on forehead of robot, namely a dashboard to  
+display internal robot device status and connectivity, as well as a   
+call screen to allow users to answer or deny calls made to their      
+telepresence robot. 
+
+Notable Projects and Open Source
+==============================================
+
+Boeing Robotic Wingbox
+Team Leader and Lead Programmer
+Troy, NY, Spring 2012
+ - Led a capstone team of engineering students to design a simulator     
+   for an intra-wing robot to operate inside an aircraft. 
+ - Worked closely with Boeing to fulfill requirements for assembly and   
+   maintenance roles of operation. 
+ - Implemented client / server architecture to distribute computation    
+   effectively and allow collaborative robot use. 
+ - Designed and implemented a 3D interface with joystick integration to  
+   allow user to easily modify robot state. 
+ - Wrote highly concurrent, high-performance server to control robot     
+   hardware, recognize object locations with OpenCV and plan          
+   kinematic trajectories to avoid collisions. 
+
+DaBuzz Market Sentiment Analyzer
+Team Member
+Troy, NY, Spring 2012
+ - Designed and implemented web crawler and scraper to analyze           
+   financial news sources and gauge stock market sentiment. 
+ - Assisted in implementation and training of classifier using Python    
+   Natural Language Toolkit. 
+ - Gave presentations and poster sessions to the RPI Community about     
+   DaBuzz and the Rensselaer Center for Open Source Software. 
+
+Technical Skills
+==============================================
+
+Software Development
+Python, Javascript, C++, C, Java, PHP, MATLAB, LabVIEW. Seasoned      
+GNU/Linux user. Familiar industry standard development workflows,     
+version control systems and design patterns. 
+
+Computer Aided Design  
+Advanced experience with Solidworks. Virtually designed and           
+simulated FIRST robots, a Battlebot, as well as vacuum chambers at    
+Harvard-Smithsonian Center for Astrophysics. 
+
+Embedded Control
+Authored control software for autonomous and semi-autonomous boats,   
+blimps, cars and robots. Programmed for multiple microcontrollers     
+(Intel 8051, ARM). Regularly build own servers and computers. 
+
+Web Technologies
+Host own website on self-built framework with Amazon's Elastic        
+Computing Cloud. Competent Javascript developer. Familiar with        
+CSS/HTML, Django, Webpy, Wordpress core, various Google APIs and      
+configuring a LAMP stack. Proficient with relational and              
+non-relational databases. 
+
+Student Leadership and Activities
+==============================================
+
+Red & White Student Organization
+Webmaster
+Troy, NY, Spring 2012
+Responsible for representing Rensselaer at high-visibility functions  
+to its alumni, campus and community. As Webmaster, maintained a web   
+presence for the organization. 
+
+The Baruch '60 Center for Bio-Solar Energy
+Webmaster and Systems Administrator
+Troy, NY, Spring 2009 - Spring 2012
+Created and maintained two websites, responsible for various IT and   
+support tasks. 
+
+Rensselaer Judicial Board
+Board Member
+Troy, NY, Fall 2009
+Served in judgment for cases where student rights, responsibilities   
+or conduct were in question. 
+
+
