@@ -3,35 +3,12 @@
   <head>
     <title>WebGL Blox</title>
     <script src="../js/jquery.js"></script>
-    <script src="../js/webgl/Three.js"></script>
-    <script src="../js/webgl/Detector.js"></script>
-    <script src="../js/webgl/ViewportControls.js"></script>
-    
-    <script src="../js/webgl/ShaderExtras.js"></script>
-
-    <script src="../js/webgl/postprocessing/EffectComposer.js"></script>
-    <script src="../js/webgl/postprocessing/RenderPass.js"></script>
-    <script src="../js/webgl/postprocessing/ShaderPass.js"></script>
-    <script src="../js/webgl/postprocessing/MaskPass.js"></script>
-    <script src="../js/webgl/postprocessing/BloomPass.js"></script>
-    <script src="../js/webgl/postprocessing/FilmPass.js"></script>
-    
-    <script src="../js/webgl/fonts/gentilis_bold.typeface.js"></script>
-    <script src="../js/webgl/fonts/gentilis_regular.typeface.js"></script>
-    <script src="../js/webgl/fonts/optimer_bold.typeface.js"></script>
-    <script src="../js/webgl/fonts/optimer_regular.typeface.js"></script>
-    <script src="../js/webgl/fonts/helvetiker_bold.typeface.js"></script>
-    <script src="../js/webgl/fonts/helvetiker_regular.typeface.js"></script>
-    <script src="../js/webgl/fonts/droid_sans_regular.typeface.js"></script>
-    <script src="../js/webgl/fonts/droid_sans_bold.typeface.js"></script>
-    <script src="../js/webgl/fonts/droid_serif_regular.typeface.js"></script>
-    <script src="../js/webgl/fonts/droid_serif_bold.typeface.js"></script>
-    
+    <script src="../js/app.js"></script>
   </head>
   
   <body>
     <script>
-      if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+      if (! Detector.webgl) Detector.addGetWebGLMessage();
       
       block = function(color, x, y)
       {
@@ -43,7 +20,7 @@
         
         var geometry = new THREE.CubeGeometry(1, 1, 1);
         //var geometry = new THREE.IcosahedronGeometry(0.6, 1.0);
-        var material = new THREE.MeshPhongMaterial( { opacity: 0.95, ambient: 0x000000, color: color, specular: 0x555555, shininess: 3, shading: THREE.Flatshading });
+        var material = new THREE.MeshPhongMaterial({ opacity: 0.95, ambient: 0x000000, color: color, specular: 0x555555, shininess: 3, shading: THREE.Flatshading });
         
         geometry.computeBoundingBox();
         geometry.computeVertexNormals();
@@ -172,9 +149,9 @@
           
         for (var i = 0; i < 6; i++)
         {
-          var pointLight = new THREE.PointLight( 0xffffff, .7 );
-          pointLight.position.set( l[i][0], l[i][1], l[i][2]);
-          scene.add( pointLight );
+          var pointLight = new THREE.PointLight(0xffffff, .7);
+          pointLight.position.set(l[i][0], l[i][1], l[i][2]);
+          scene.add(pointLight);
         }
 
         renderer = new THREE.WebGLRenderer(
@@ -199,21 +176,21 @@
 
         renderer.autoClear = true;
 
-        var renderModel = new THREE.RenderPass( scene, camera );
-        var effectBloom = new THREE.BloomPass( 0.25 );
-        var effectFilm = new THREE.FilmPass( 0.5, 0.125, 2048, false );
-        var effectFXAA = new THREE.ShaderPass( THREE.ShaderExtras[ "fxaa" ] );
+        var renderModel = new THREE.RenderPass(scene, camera);
+        var effectBloom = new THREE.BloomPass(0.25);
+        var effectFilm = new THREE.FilmPass(0.5, 0.125, 2048, false);
+        var effectFXAA = new THREE.ShaderPass(THREE.ShaderExtras[ "fxaa" ]);
 
-        effectFXAA.uniforms[ 'resolution' ].value.set( 1 / window.innerWidth, 1 / window.innerHeight );
+        effectFXAA.uniforms[ 'resolution' ].value.set(1 / window.innerWidth, 1 / window.innerHeight);
 
         effectFilm.renderToScreen = true;
 
-        composer = new THREE.EffectComposer( renderer );
+        composer = new THREE.EffectComposer(renderer);
 
-        composer.addPass( renderModel );
-        composer.addPass( effectFXAA );
-        composer.addPass( effectBloom );
-        composer.addPass( effectFilm );
+        composer.addPass(renderModel);
+        composer.addPass(effectFXAA);
+        composer.addPass(effectBloom);
+        composer.addPass(effectFilm);
         
         if (enable_controls) {
           controls = new THREE.ViewportControls(camera, renderer.domElement);
@@ -270,14 +247,14 @@
       function printText(msg)
       {
         text = msg;
-        scene.remove( textMesh );
+        scene.remove(textMesh);
         createText();
       };
       
       function createText()
       {
         var faceMaterial = new THREE.MeshFaceMaterial();
-        var textMaterialFront = new THREE.MeshPhongMaterial( { color: 0xffffff, shading: THREE.FlatShading } );
+        var textMaterialFront = new THREE.MeshPhongMaterial({ color: 0xffffff, shading: THREE.FlatShading });
         
         var height = 0.1;
         var size = 0.5;
@@ -289,7 +266,7 @@
         var weight = "bold";
         var style = "normal";
         
-        var textGeo = new THREE.TextGeometry( text, {
+        var textGeo = new THREE.TextGeometry(text, {
           size: size,
           height: height,
           curveSegments: curveSegments,
@@ -305,7 +282,7 @@
         textGeo.computeBoundingBox();
         textGeo.computeVertexNormals();
 
-        var centerOffset = -0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
+        var centerOffset = -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
 
         textMesh = new THREE.Mesh(textGeo, faceMaterial);
 
@@ -313,7 +290,7 @@
         textMesh.position.y = hover;
         textMesh.position.z = 0;
 
-        scene.add( textMesh );
+        scene.add(textMesh);
       };
       
       
@@ -428,7 +405,7 @@
       {
         requestAnimationFrame(animate);
         
-        composer.render( 0.05 );
+        composer.render(0.05);
         
         if (enable_controls) {
           controls.update();

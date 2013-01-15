@@ -1,6 +1,7 @@
 import os
 import codecs
 import re
+import time
 
 try:
   from closure_linter import error_fixer
@@ -47,7 +48,7 @@ def build_js(outputdir):
   
   print 'running linter...'
   files = recursive_file_list('js/src')
-  for fname in files + third_party_files:
+  for fname in files:
     if os.path.splitext(fname)[1] == '.js':
       linter(fname)
 
