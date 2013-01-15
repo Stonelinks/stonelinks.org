@@ -1,5 +1,5 @@
 // stonelinks js library 
-// compiled on Tue Jan 15 15:27:21 2013
+// compiled on Tue Jan 15 17:35:23 2013
 
 'use strict';
 var console = console || {};
@@ -1396,13 +1396,13 @@ if(typeof jQuery != "undefined") {
   }
 }
 ;/*
- CCAttribution-ShareAlike 2.5 Brazil - http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US.
+ CCAttribution-ShareAlike 2.5 Brazil - http://creativecommons.org/licenses/by-sa/2.5/br/deed.en_US
  @example Visit http://leandrovieira.com/projects/jquery/lightbox/ for more informations about this jQuery plugin
 */
 (function($) {
   $.fn.lightBox = function(settings) {
-    settings = jQuery.extend({overlayBgColor:"#000", overlayOpacity:0.8, fixedNavigation:false, imageLoading:"http://stonelinks.org/static/img/lightbox/lightbox-ico-loading.gif", imageBtnPrev:"http://stonelinks.org/static/img/lightbox/lightbox-btn-prev.gif", imageBtnNext:"http://stonelinks.org/static/img/lightbox/lightbox-btn-next.gif", imageBtnClose:"http://stonelinks.org/static/img/lightbox/lightbox-btn-close.gif", imageBlank:"http://stonelinks.org/static/img/lightbox/lightbox-blank.gif", containerBorderSize:10, 
-    containerResizeSpeed:400, txtImage:"Image", txtOf:"of", keyToClose:"c", keyToPrev:"p", keyToNext:"n", imageArray:[], activeImage:0}, settings);
+    settings = jQuery.extend({overlayBgColor:"#000", overlayOpacity:0.8, fixedNavigation:false, imageLoading:"/static/img/lightbox/lightbox-ico-loading.gif", imageBtnPrev:"/static/img/lightbox/lightbox-btn-prev.gif", imageBtnNext:"/static/img/lightbox/lightbox-btn-next.gif", imageBtnClose:"/static/img/lightbox/lightbox-btn-close.gif", imageBlank:"/static/img/lightbox/lightbox-blank.gif", containerBorderSize:10, containerResizeSpeed:400, txtImage:"Image", txtOf:"of", keyToClose:"c", keyToPrev:"p", 
+    keyToNext:"n", imageArray:[], activeImage:0}, settings);
     var jQueryMatchedObj = this;
     function _initialize() {
       _start(this, jQueryMatchedObj);
@@ -16326,6 +16326,12 @@ THREE.ShaderPass.prototype = {render:function(renderer, writeBuffer, readBuffer,
     renderer.render(THREE.EffectComposer.scene, THREE.EffectComposer.camera, writeBuffer, this.clear)
   }
 }};
+$(function() {
+  $("a[rel*=lightbox]").lightBox()
+});
+var goBack = function() {
+  window.history.back()
+};
 !function($) {
   var Carousel = function(element, options) {
     this.$element = $(element);
@@ -16423,4 +16429,235 @@ THREE.ShaderPass.prototype = {render:function(renderer, writeBuffer, readBuffer,
     })
   })
 }(window.jQuery);
+var simulator = {robot:function(scene) {
+  var robot = {};
+  var robot_material;
+  var wheel_material, wheel_geometry;
+  var frisbees, frisbee_material, frisbee_geometry;
+  frisbees = [];
+  var wheel_velocity = 8.5;
+  var wheel_force = 6E3;
+  robot_material = Physijs.createMaterial(new THREE.MeshLambertMaterial({color:16737894}), 0.8, 0.2);
+  wheel_material = Physijs.createMaterial(new THREE.MeshLambertMaterial({color:4473924}), 0.9, 0.5);
+  wheel_geometry = new THREE.CylinderGeometry(2, 2, 1, 16);
+  frisbee_material = Physijs.createMaterial(new THREE.MeshLambertMaterial({color:colors.red}), 0.5, 0.2);
+  frisbee_geometry = new THREE.CylinderGeometry(2, 2, 1, 16);
+  robot.body = new Physijs.BoxMesh(new THREE.CubeGeometry(10, 5, 7), robot_material, 1E3);
+  robot.body.position.y = 8;
+  scene.add(robot.body);
+  robot.wheel_fl = new Physijs.CylinderMesh(wheel_geometry, wheel_material, 500);
+  robot.wheel_fl.rotation.x = Math.PI / 2;
+  robot.wheel_fl.position.set(-3.5, 6.5, 5);
+  scene.add(robot.wheel_fl);
+  robot.wheel_fl_constraint = new Physijs.DOFConstraint(robot.wheel_fl, robot.body, new THREE.Vector3(-3.5, 6.5, 5));
+  scene.addConstraint(robot.wheel_fl_constraint);
+  robot.wheel_fl_constraint.setAngularLowerLimit({x:0, y:0, z:0});
+  robot.wheel_fl_constraint.setAngularUpperLimit({x:0, y:0, z:0});
+  robot.wheel_fr = new Physijs.CylinderMesh(wheel_geometry, wheel_material, 500);
+  robot.wheel_fr.rotation.x = Math.PI / 2;
+  robot.wheel_fr.position.set(-3.5, 6.5, -5);
+  scene.add(robot.wheel_fr);
+  robot.wheel_fr_constraint = new Physijs.DOFConstraint(robot.wheel_fr, robot.body, new THREE.Vector3(-3.5, 6.5, -5));
+  scene.addConstraint(robot.wheel_fr_constraint);
+  robot.wheel_fr_constraint.setAngularLowerLimit({x:0, y:0, z:0});
+  robot.wheel_fr_constraint.setAngularUpperLimit({x:0, y:0, z:0});
+  robot.wheel_bl = new Physijs.CylinderMesh(wheel_geometry, wheel_material, 500);
+  robot.wheel_bl.rotation.x = Math.PI / 2;
+  robot.wheel_bl.position.set(3.5, 6.5, 5);
+  scene.add(robot.wheel_bl);
+  robot.wheel_bl_constraint = new Physijs.DOFConstraint(robot.wheel_bl, robot.body, new THREE.Vector3(3.5, 6.5, 5));
+  scene.addConstraint(robot.wheel_bl_constraint);
+  robot.wheel_bl_constraint.setAngularLowerLimit({x:0, y:0, z:0});
+  robot.wheel_bl_constraint.setAngularUpperLimit({x:0, y:0, z:0});
+  robot.wheel_br = new Physijs.CylinderMesh(wheel_geometry, wheel_material, 500);
+  robot.wheel_br.rotation.x = Math.PI / 2;
+  robot.wheel_br.position.set(3.5, 6.5, -5);
+  scene.add(robot.wheel_br);
+  robot.wheel_br_constraint = new Physijs.DOFConstraint(robot.wheel_br, robot.body, new THREE.Vector3(3.5, 6.5, -5));
+  scene.addConstraint(robot.wheel_br_constraint);
+  robot.wheel_br_constraint.setAngularLowerLimit({x:0, y:0, z:0});
+  robot.wheel_br_constraint.setAngularUpperLimit({x:0, y:0, z:0});
+  var score = 0;
+  window.addEventListener("keydown", function(ev) {
+    ev.preventDefault();
+    switch(ev.keyCode) {
+      case 37:
+        robot.wheel_fl_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_fr_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_fl_constraint.enableAngularMotor(2);
+        robot.wheel_fr_constraint.enableAngularMotor(2);
+        robot.wheel_bl_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_br_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_bl_constraint.enableAngularMotor(2);
+        robot.wheel_br_constraint.enableAngularMotor(2);
+        break;
+      case 39:
+        robot.wheel_fl_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_fr_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_fl_constraint.enableAngularMotor(2);
+        robot.wheel_fr_constraint.enableAngularMotor(2);
+        robot.wheel_bl_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_br_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_bl_constraint.enableAngularMotor(2);
+        robot.wheel_br_constraint.enableAngularMotor(2);
+        break;
+      case 38:
+        robot.wheel_fl_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_fr_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_fl_constraint.enableAngularMotor(2);
+        robot.wheel_fr_constraint.enableAngularMotor(2);
+        robot.wheel_bl_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_br_constraint.configureAngularMotor(2, 1, 0, wheel_velocity, wheel_force);
+        robot.wheel_bl_constraint.enableAngularMotor(2);
+        robot.wheel_br_constraint.enableAngularMotor(2);
+        break;
+      case 40:
+        robot.wheel_fl_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_fr_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_fl_constraint.enableAngularMotor(2);
+        robot.wheel_fr_constraint.enableAngularMotor(2);
+        robot.wheel_bl_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_br_constraint.configureAngularMotor(2, 1, 0, -wheel_velocity, wheel_force);
+        robot.wheel_bl_constraint.enableAngularMotor(2);
+        robot.wheel_br_constraint.enableAngularMotor(2);
+        break;
+      case 32:
+        var frisbee = new Physijs.CylinderMesh(frisbee_geometry, frisbee_material, 500);
+        frisbee.position.set(robot.body.position.x, robot.body.position.y, robot.body.position.z);
+        frisbee.position.y += 4;
+        frisbee.rotation.set(robot.body.rotation.x, robot.body.rotation.y, robot.body.rotation.z);
+        frisbee.scale.set(1, 1, 1);
+        var rotation_matrix = new THREE.Matrix4;
+        rotation_matrix.extractRotation(robot.body.matrix);
+        scene.add(frisbee);
+        var updateScore = function() {
+          $("#score").text(score.toString())
+        };
+        frisbee.addEventListener("collision", function(collided_with, linearVelocity, angularVelocity) {
+          if(collided_with._simID == "goal") {
+            score += 1;
+            updateScore()
+          }
+        });
+        var force_vector = new THREE.Vector3(-25E5, 7E5, 0);
+        var final_force_vector = rotation_matrix.multiplyVector3(force_vector);
+        frisbees.push(frisbee);
+        setTimeout(function() {
+          frisbee.applyCentralForce(final_force_vector)
+        }, 100);
+        if(frisbees.length > 5) {
+          scene.remove(frisbees[0]);
+          frisbees = frisbees.slice(1, frisbees.length)
+        }
+        break
+    }
+  });
+  window.addEventListener("keyup", function(ev) {
+    ev.preventDefault();
+    switch(ev.keyCode) {
+      case 37:
+        robot.wheel_fl_constraint.disableAngularMotor(2);
+        robot.wheel_fr_constraint.disableAngularMotor(2);
+        robot.wheel_bl_constraint.disableAngularMotor(2);
+        robot.wheel_br_constraint.disableAngularMotor(2);
+        break;
+      case 39:
+        robot.wheel_fl_constraint.disableAngularMotor(2);
+        robot.wheel_fr_constraint.disableAngularMotor(2);
+        robot.wheel_bl_constraint.disableAngularMotor(2);
+        robot.wheel_br_constraint.disableAngularMotor(2);
+        break;
+      case 38:
+        robot.wheel_fl_constraint.disableAngularMotor(2);
+        robot.wheel_fr_constraint.disableAngularMotor(2);
+        robot.wheel_bl_constraint.disableAngularMotor(2);
+        robot.wheel_br_constraint.disableAngularMotor(2);
+        break;
+      case 40:
+        robot.wheel_fl_constraint.disableAngularMotor(2);
+        robot.wheel_fr_constraint.disableAngularMotor(2);
+        robot.wheel_bl_constraint.disableAngularMotor(2);
+        robot.wheel_br_constraint.disableAngularMotor(2);
+        break
+    }
+  });
+  return robot
+}, arena:function(scene) {
+  var ground_material, ground;
+  var wall1, wall2, wall3, wall4;
+  var wall_height = 10;
+  var arena_l = 150;
+  var arena_w = 100;
+  var goal, goal_material;
+  ground_material = Physijs.createMaterial(new THREE.MeshLambertMaterial({color:12566463}), 0.8, 0.4);
+  ground = new Physijs.BoxMesh(new THREE.CubeGeometry(arena_w, 1, arena_l), ground_material, 0);
+  scene.add(ground);
+  wall1 = new Physijs.BoxMesh(new THREE.CubeGeometry(arena_w, wall_height, 1), ground_material, 0);
+  wall1.position.z = -arena_l / 2;
+  scene.add(wall1);
+  wall2 = new Physijs.BoxMesh(new THREE.CubeGeometry(arena_w, wall_height, 1), ground_material, 0);
+  wall2.position.z = arena_l / 2;
+  scene.add(wall2);
+  wall3 = new Physijs.BoxMesh(new THREE.CubeGeometry(1, wall_height, arena_l), ground_material, 0);
+  wall3.position.x = -arena_w / 2;
+  scene.add(wall3);
+  wall4 = new Physijs.BoxMesh(new THREE.CubeGeometry(1, wall_height, arena_l), ground_material, 0);
+  wall4.position.x = arena_w / 2;
+  scene.add(wall4);
+  goal_material = Physijs.createMaterial(new THREE.MeshLambertMaterial({color:colors.green}), 0.8, 0.4);
+  goal = new Physijs.BoxMesh(new THREE.CubeGeometry(15, 5, 0), goal_material, 0);
+  goal.position.z = -(arena_w / 2 + 40);
+  goal.position.y = 15;
+  goal._simID = "goal";
+  scene.add(goal)
+}, simulator:function(anchor) {
+  if(anchor.length == 0) {
+    return
+  }else {
+    if(!Detector.webgl) {
+      anchor.append($("<h3>No webgl support detected</h3>"));
+      return
+    }
+  }
+  var anchor_w = anchor.parent().width();
+  var anchor_h = 800;
+  Physijs.scripts.worker = "/static/js/physics/physijs_worker.js";
+  Physijs.scripts.ammo = "/static/js/physics/ammo.js";
+  var initScene, render, projector, renderer, scene, light, camera, robot, arena;
+  initScene = function() {
+    projector = new THREE.Projector;
+    renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setSize(anchor_w, anchor_h);
+    anchor.append(renderer.domElement);
+    scene = new Physijs.Scene;
+    scene.setGravity(new THREE.Vector3(0, -30, 0));
+    scene.addEventListener("update", function() {
+      scene.simulate(undefined, 2)
+    });
+    camera = new THREE.PerspectiveCamera(35, anchor_w / anchor_h, 1, 1E3);
+    camera.position.set(80, 50, 80);
+    camera.lookAt(scene.position);
+    scene.add(camera);
+    light = new THREE.DirectionalLight(16777215);
+    light.position.set(20, 40, -15);
+    light.target.position.copy(scene.position);
+    scene.add(light);
+    arena = simulator.arena(scene);
+    robot = simulator.robot(scene);
+    var render = function() {
+      requestAnimationFrame(render);
+      renderer.render(scene, camera);
+      camera.lookAt(robot.body.position)
+    };
+    requestAnimationFrame(render);
+    scene.simulate()
+  };
+  initScene()
+}};
+function print(msg) {
+  setTimeout(function() {
+    console.log(msg)
+  }, 0)
+}
+var colors = {red:16711680, green:65280, blue:255, yellow:16776960, purple:10494192, whut:65507};
 

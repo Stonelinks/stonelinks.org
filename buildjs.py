@@ -51,6 +51,7 @@ def build_js(outputdir):
   for fname in files:
     if os.path.splitext(fname)[1] == '.js':
       linter(fname)
+      sources.append(fname)
 
   compilerjar = os.path.join(jspath, 'closure_compiler', 'compiler.jar')
   closureexternsfile = os.path.join(jspath,'utils','externs.js')
