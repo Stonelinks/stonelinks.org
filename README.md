@@ -1,4 +1,4 @@
-##Deprecated, see https://github.com/Stonelinks/stonelinks.github.io
+## Deprecated, see https://github.com/Stonelinks/stonelinks.github.io
 
 This is the code that runs stonelinks.org, my personal website. It is also a standalone html compiler for trees of markdown files. This means that if you want a website, all you need to do is:
 - Write the body of your web pages in markdown files
